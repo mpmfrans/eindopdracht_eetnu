@@ -33,7 +33,7 @@
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/search.js"></script>
-        <title>Eet.nu</title>
+        <title>Eet.nu settings</title>
     </head>
     <body>
         <div data-role="page" data-theme="d">
@@ -55,14 +55,16 @@
                             <option value="On">On</option>
                         </select> 
                 </div>
-            </div>
-            <div data-role="main" class="ui-content">
                 <div data-role="fieldcontain">
-                    <label for="flip-2">Setting 2</label>
-                        <select name="flip-2" id="flip-2" data-role="slider">
+                    <label for="flip-2">Setting 1</label>
+                        <select name="flip-2" id="flip-1" data-role="slider">
                             <option value="Off">Off</option>
                             <option value="On">On</option>
                         </select> 
+                </div>
+                <div data-role="fieldcontain">
+                   <label for="slider-1">Range:</label>
+                   <input type="range" name="slider-1" id="slider-1" value="25" min="0" max="100"  />
                 </div>
             </div>
             <button>Save</button>
