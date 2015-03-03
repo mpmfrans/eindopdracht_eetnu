@@ -1,4 +1,6 @@
-$( "#search" ).click(function(){
+var appsearch ={
+
+search: function(){
     
     var $restaurants = $('#restaurants');
     
@@ -14,4 +16,5 @@ $( "#search" ).click(function(){
     });
     
 });
+};
 
