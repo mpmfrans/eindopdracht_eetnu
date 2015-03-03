@@ -1,4 +1,4 @@
-$(function (){
+$( "#search" ).click(function(){
     
     var $restaurants = $('#restaurants');
     
