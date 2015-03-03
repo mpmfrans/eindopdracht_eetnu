@@ -1,6 +1,6 @@
 var appsearch = {
 
-search: function(){
+searchrestaurants: function(){
     
     $.ajax({
         type: 'GET'
