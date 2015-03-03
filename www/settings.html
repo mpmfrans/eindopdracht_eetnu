@@ -48,26 +48,48 @@
                 </div>
             </div>
             <div data-role="main" class="ui-content">
-                <div data-role="fieldcontain">
-                    <label for="flip-2">Setting 1</label>
-                        <select name="flip-2" id="flip-1" data-role="slider">
-                            <option value="Off">Off</option>
-                            <option value="On">On</option>
-                        </select> 
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="flip-2">Setting 1</label>
-                        <select name="flip-2" id="flip-1" data-role="slider">
-                            <option value="Off">Off</option>
-                            <option value="On">On</option>
-                        </select> 
-                </div>
-                <div data-role="fieldcontain">
-                   <label for="slider-1">Range:</label>
-                   <input type="range" name="slider-1" id="slider-1" value="25" min="0" max="100"  />
-                </div>
+                <form>
+                    <div data-role="fieldcontain">
+                        <label for="flip-2">Setting 1</label>
+                            <select name="flip-2" id="flip-1" data-role="slider">
+                                <option value="Off">Off</option>
+                                <option value="On">On</option>
+                            </select> 
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="flip-2">Setting 1</label>
+                            <select name="flip-2" id="flip-2" data-role="slider">
+                                <option value="Off">Off</option>
+                                <option value="On">On</option>
+                            </select> 
+                    </div>
+                    <div data-role="fieldcontain">
+                       <label for="slider-1">Range:</label>
+                       <input type="range" name="slider-1" id="slider-1" value="25" min="0" max="100"  />
+                    </div>
+                    </div>
+                    <input type="submit" value="Save">
+                </form>
+            
+            <script type="text/javascript">
+                function submitForm(){
+                    var setting1 = $( '#flip-1').val();
+                    var setting2 = $( '#flip-2').val();
+                    var range = $( '#slider-1').val();
+                    
+                    window.localStorage.setItem("setting1", setting1);
+                    window.localStorage.setItem("setting2", setting2);
+                    window.localStorage.setItem("range", range);
+                    
+                    $('#output').html("Setting1 " + window.localStorage.getItem("setting1") + " Setting2 " + window.localStorage.getItem("setting2") + " range " + window.localStorage.getItem("range"));
+                
+                }
+                
+            </script>
+            
+            <div id="output">
+            
             </div>
-            <button>Save</button>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
             </div>   
