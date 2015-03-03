@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="nl.avans.mbd1.id{2043991}" version="1.0.0">
   <name>Eet.nu</name>
-  <description>Hello World sample application that responds to the deviceready event.</description>
+  <description>Restaurant app Eet.nu is een app waarbij je kan zoeken naar je favoriete restaurants.</description>
   <author href="http://phonegap.com" email="mpmfrans@gmail.com">Thijs Fransen</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
