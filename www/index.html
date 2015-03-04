@@ -39,7 +39,7 @@
        $(function(){
         $('#index_page').bind('swipeleft', function(event){
         
-            alert("hello");
+            $.mobile.changePage("#search_page", { transition: "slideup"});
         })
        
        });
