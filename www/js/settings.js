@@ -36,7 +36,7 @@ var settings = {
         document.getElementById("flip-2").value = setting2;
         $('#flip-2').slider('refresh');
         document.getElementById("slider-1").value = range;
-        $('#slider-1').slider('refresh');
+        $('#slider-1').slider('refresh');  
     },
     
       showSettings: function() {
@@ -49,8 +49,12 @@ var settings = {
         
         alert(setting1 + setting2 + range);
             });
-    }
-
+    },
 };
+
+$( "#settings" ).click(function() {
+  alert( "Handler for .click() called." );
+});
+
 
 
