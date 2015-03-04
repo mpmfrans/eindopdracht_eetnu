@@ -41,11 +41,12 @@
                 $('div.ui-page').bind('swipeleft', function(event){
                     var nextpage = $(this).next('div[data-role="page"]');
                     
-                    $.mobile.changePage(nextpage, {transition: "slide"});
+                  
                     // swipe using id of next page if exists
-                    //if (nextpage.length > 0) {
+                    if (nextpage.length > 0) {
+                          $.mobile.changePage(nextpage, {transition: "slide"});
                      //   $.mobile.changePage(nextpage, 'slide');
-                    //}
+                    }
                 });
               /*
                 $('div[data-role="main"]').bind('swiperight', function(event){
