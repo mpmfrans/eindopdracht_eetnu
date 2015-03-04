@@ -37,17 +37,18 @@
         <script type="text/javascript" src="js/index.js"></script>
        <script>
          $(function(){
-                
-                $('div.ui-page').bind('swipeleft', function(event){
+                /*
+                $(".swipe").click(function(event){
+                    curr = $(".page").attr('id'); 
+                    var nextpage = $(curr).next();
+                    console.log(curr);
                     
-                    var nextpage = $(this).next('div.ui-page');
-                    //console.log(nextpage);
                     // swipe using id of next page if exists
-                    if (nextpage.length > 0) {
+                   // if (nextpage.length > 0) {
                           $.mobile.changePage(nextpage, {transition: "slide"});
-                       curr = nextpage;
+                       //curr = nextpage;
                      //   $.mobile.changePage(nextpage, 'slide');
-                    }
+                   // }
                 });
              
                       
@@ -59,7 +60,21 @@
                     if (prevpage.length > 0) {
                         $.mobile.changePage(prevpage, {transition: "slide"});
                     }
+                }); */
+             
+             $('div.ui-page').bind("swipeleft", function(){
+                var nextpage = $(this).next('div[data-role="page"]');
+                if (nextpage.length > 0) {
+                $.mobile.changePage(nextpage, "slide", false, true);
+                }
                 });
+                $('div.ui-page').bind("swiperight", function(){
+                var prevpage = $(this).prev('div[data-role="page"]');
+                if (prevpage.length > 0) {
+                $.mobile.changePage(prevpage, {transition: "slide",
+                reverse: true}, true, true);
+                }
+});
 
         });        
             
@@ -109,7 +124,7 @@
             </div>   
         </div>
     <!-- ================================================================================================================================================================================ -->   
-        <div data-role="page" id="settings_page" data-theme="d">
+        <div data-role="page" id="settings_page" data-theme="d" class="page">
             <div data-role="header">
                 <h1>Eet.nu settings</h1>
                 <div data-role="navbar">
