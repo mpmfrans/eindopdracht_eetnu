@@ -22,16 +22,21 @@ var settings = {
          localStorage.setting1 = $('#flip-1').val();
          localStorage.setting2 = $('#flip-2').val();
          localStorage.range = $('#slider-1').val();
-         alert(localStorage.getItem("range"));
+         alert("Settings saved.");
     },
     
     loadSettings: function() {
         
-    $('#page').page();
-    $('#slider-1').val(localStorage.getItem("range"));
-    $('#slider-1').slider('refresh');
+        var setting1 = window.localStorage.getItem("setting1");
+        var setting2 = window.localStorage.getItem("setting2");
+        var range = window.localStorage.getItem("range");
         
-       alert("test");
+        document.getElementById("flip-1").value = setting1;
+        $('#flip-1').slider('refresh');
+        document.getElementById("flip-2").value = setting2;
+        $('#flip-2').slider('refresh');
+        document.getElementById("slider-1").value = range;
+        $('#slider-1').slider('refresh');
     }
 
 };
