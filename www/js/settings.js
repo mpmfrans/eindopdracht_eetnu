@@ -40,12 +40,15 @@ var settings = {
     },
     
       showSettings: function() {
-        
+        $(function() {
+    
+
         var setting1 = window.localStorage.getItem("setting1");
         var setting2 = window.localStorage.getItem("setting2");
         var range = window.localStorage.getItem("range");
         
         alert(setting1 + setting2 + range);
+            });
     }
 
 };
