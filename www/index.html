@@ -38,7 +38,7 @@
           
           $(function(){
                 
-                $('div[data-role="main"]').bind('swipeleft', function(event){
+                $('div.ui-page').bind('swipe', function(event){
                     var nextpage = $(this).next('div[data-role="page"]');
                     
                     $.mobile.changePage(nextpage, {transition: "slide"});
