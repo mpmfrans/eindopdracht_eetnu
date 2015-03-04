@@ -35,21 +35,30 @@
         <script type="text/javascript" src="js/search.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
       <script>
-                // <!--
-                $('#index_page').live("swipeleft", function(){
-                var nextpage = $(this).next('div[data-role="page"]');
-                if (nextpage.length > 0) {
-                $.mobile.changePage(nextpage, "slide", false, true);
-                }
+          
+          $(function(){
+                
+                $('div[data-role="main"]').bind("swipeleft", function(){
+                    var nextpage = $(this).next('div[data-role="page"]');
+                    // swipe using id of next page if exists
+                    if (nextpage.length > 0) {
+                        $.mobile.changePage(nextpage, 'slide');
+                    }
                 });
-                $('#index_page').live("swiperight", function(){
-                var prevpage = $(this).prev('div[data-role="page"]');
-                if (prevpage.length > 0) {
-                $.mobile.changePage(prevpage, {transition: "slide",
-                reverse: true}, true, true);
-                }
+                $('div[data-role="main"]').bind("swiperight", function(){
+                    var prevpage = $(this).prev('div[data-role="page"]');
+                    // swipe using id of next page if exists
+                    if (prevpage.length > 0) {
+                        $.mobile.changePage(prevpage, 'slide', true);
+                    }
                 });
-                // -->
+
+        });        
+                   
+                    
+           
+                
+              
 </script>
         <title>Hello World</title>
     </head>
