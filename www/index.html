@@ -48,15 +48,15 @@
                      //   $.mobile.changePage(nextpage, 'slide');
                     }
                 });
-              /*
-                $('div[data-role="main"]').bind('swiperight', function(event){
+              
+                $('div.ui-page').bind('swiperight', function(event){
                     var prevpage = $(this).prev('div[data-role="page"]');
                     // swipe using id of next page if exists
                     if (prevpage.length > 0) {
-                        $.mobile.changePage(prevpage, 'slide', true);
+                        $.mobile.changePage(prevpage, {transition: "slide"});
                     }
                 });
-*/
+
         });        
                    
                     
