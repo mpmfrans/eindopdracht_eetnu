@@ -34,18 +34,23 @@
         <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/search.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
-        <script>
-            
-       $(function(){
-        $('#index_page').bind('swipeleft', function(event){
-        
-            $.mobile.changePage("#search_page", { transition: "slideup"});
-        })
-       
-       });
-        
-        
-        </script>
+      <script>
+                // <!--
+                $('div.ui-page').live("swipeleft", function(){
+                var nextpage = $(this).next('div[data-role="page"]');
+                if (nextpage.length > 0) {
+                $.mobile.changePage(nextpage, "slide", false, true);
+                }
+                });
+                $('div.ui-page').live("swiperight", function(){
+                var prevpage = $(this).prev('div[data-role="page"]');
+                if (prevpage.length > 0) {
+                $.mobile.changePage(prevpage, {transition: "slide",
+                reverse: true}, true, true);
+                }
+                });
+                // -->
+</script>
         <title>Hello World</title>
     </head>
     <body>
