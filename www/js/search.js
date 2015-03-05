@@ -5,7 +5,7 @@ $(function(){
  $.ajax({
             type: 'GET',
             url: 'https://api.eet.nu/venues?max_distance=10&geolocation=51.8589731,5.6046912',
-            succes: function(data){
+            success: function(data){
                 alert("found");
             }
         
