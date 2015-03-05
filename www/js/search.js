@@ -1,9 +1,24 @@
 
 
+$(function(){
+
+ $.ajax({
+            type: 'GET',
+            url: 'https://api.eet.nu/venues?max_distance=10&geolocation=51.8589731,5.6046912',
+            succes: function(data){
+                alert("found");
+            }
+        
+        });
+
+
+});
+
 var searchRestaurants ={
 
     getCurrentLocation: function(){
          var Geo={};
+         var searchRange = localStorage.getItem("range");
 
         if (navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(success, error);
@@ -13,46 +28,26 @@ var searchRestaurants ={
         function success(position) {
             Geo.lat = position.coords.latitude;
             Geo.lng = position.coords.longitude;
-            alert(Geo.lat + " " + Geo.lng);
+            
+            //alert(Geo.lat + " " + Geo.lng);
         }
 
         function error(){
-            alert("Geocoder failed");
-        }
-
-       
-    
-    }
+            //alert("Geocoder failed");
+        } 
+    }   
 
 
 
 };
 
 
+
+
     
         
     
 
-//    // onSuccess Geolocation
-//    //
-//    function onSuccess(position) {
-//        var element = document.getElementById('geolocation');
-//        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-//                            'Longitude: '          + position.coords.longitude             + '<br />' +
-//                            'Altitude: '           + position.coords.altitude              + '<br />' +
-//                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-//                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-//                            'Heading: '            + position.coords.heading               + '<br />' +
-//                            'Speed: '              + position.coords.speed                 + '<br />' +
-//                            'Timestamp: '          + position.timestamp                    + '<br />';
-//    }
-//
-//    // onError Callback receives a PositionError object
-//    //
-//    function onError(error) {
-//        alert('code: '    + error.code    + '\n' +
-//              'message: ' + error.message + '\n');
-//    }
 //
 //$('#search').click(function (e) {
 //        $('#restaurants').append('<li>test restaurant</li>');
