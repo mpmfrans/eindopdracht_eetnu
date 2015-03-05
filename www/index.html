@@ -37,44 +37,25 @@
         <script type="text/javascript" src="js/index.js"></script>
        <script>
          $(function(){
-                /*
-                $(".swipe").click(function(event){
-                    curr = $(".page").attr('id'); 
-                    var nextpage = $(curr).next();
-                    console.log(curr);
-                    
-                    // swipe using id of next page if exists
-                   // if (nextpage.length > 0) {
-                          $.mobile.changePage(nextpage, {transition: "slide"});
-                       //curr = nextpage;
-                     //   $.mobile.changePage(nextpage, 'slide');
-                   // }
-                });
              
-                      
-              
-                $('div.ui-page').bind('swiperight', function(event){
-                    var prevpage = $(this).prev('div.ui-page');
-                    // swipe using id of next page if exists
-                    
-                    if (prevpage.length > 0) {
-                        $.mobile.changePage(prevpage, {transition: "slide"});
-                    }
-                }); */
-             
-             $('div.ui-page').bind("swipeleft", function(){
-                var nextpage = $(this).next('div[data-role="page"]');
-                if (nextpage.length > 0) {
+            var pages = $('div[data-role="page"]').toArray(); 
+             console.log(pages);
+          $(".swipeleft").click(function(){
+            var nextpage = $(pages).next('div[data-role="page"]');
+              console.log(nextpage);
+            if (nextpage.length > 0) {
                 $.mobile.changePage(nextpage, "slide", false, true);
-                }
-                });
-                $('div.ui-page').bind("swiperight", function(){
-                var prevpage = $(this).prev('div[data-role="page"]');
+            }
+            });
+            $(".swiperight").click("swiperight", function(){
+            var prevpage = $(pages).prev('div[data-role="page"]');
+                console.log(prevpage);
                 if (prevpage.length > 0) {
                 $.mobile.changePage(prevpage, {transition: "slide",
                 reverse: true}, true, true);
-                }
-});
+            }
+        });
+            
 
         });        
             
@@ -84,7 +65,7 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div data-role="page" id="index_page" data-theme="d" class="page">
+        <div data-role="page" data-theme="d" class="1">
             <div data-role="header">
                 <h1>Eet.nu index</h1>
                 <div data-role="navbar">
@@ -96,14 +77,16 @@
                 </div>
             </div>
             <div data-role="content" class="ui-content">
-               <div><button class="swipe">swipe</button></div>
+              
+                <div><button class="swipeleft">swipeleft</button></div>
+                <div><button class="swiperight">swiperight</button></div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
             </div>   
         </div>
     <!-- ================================================================================================================================================================================ -->   
-        <div data-role="page" id="search_page" data-theme="d" class="page">
+        <div data-role="page" data-theme="d" class="2">
             <div data-role="header">
                 <h1>Eet.nu search</h1>
                 <div data-role="navbar">
@@ -115,7 +98,8 @@
                 </div>
             </div>
             <div data-role="content" class="ui-content">
-                <div><button class="swipe">swipe</button></div>
+                <div><button class="swipeleft">swipeleft</button></div>
+                <div><button class="swiperight">swiperight</button></div>
                 <p>restaurants</p>
                 <ul data-role="listview" id="restaurants"></ul>
             </div>
@@ -124,7 +108,7 @@
             </div>   
         </div>
     <!-- ================================================================================================================================================================================ -->   
-        <div data-role="page" id="settings_page" data-theme="d" class="page">
+        <div data-role="page" data-theme="d" class="3">
             <div data-role="header">
                 <h1>Eet.nu settings</h1>
                 <div data-role="navbar">
@@ -156,6 +140,10 @@
                 <button id="button" onclick=settings.saveSettings();>Save</button>
                    
                 <button id="button" onclick=settings.showSettings();>Show</button>
+                
+             <div><button class="swipeleft">swipeleft</button></div
+                 ><div><button class="swiperight">swiperight</button></div>
+                    
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
