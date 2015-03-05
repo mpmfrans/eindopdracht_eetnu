@@ -38,27 +38,7 @@
        <script>
          $(function(){
              
-         $('.page').live('swipeleft swiperight',function(event){
-            console.log(event.type);
-            if (event.type == "swipeleft") {
-                var prev = $("#prevlink",$.mobile.activePage);
-                if (prev.length) {
-                    var prevurl = $(prev).attr("href");
-                    console.log(prevurl);
-                    $.mobile.changePage(prevurl);
-                }
-            }
-            if (event.type == "swiperight") {
-                    var next = $("#nextlink",$.mobile.activePage);
-                if (next.length) {
-                    var nexturl = $(next).attr("href");
-                    console.log(nexturl);
-                    $.mobile.changePage(nexturl);
-                }
-            }
-            event.preventDefault();
-        });
-            
+      
 
         });        
             
