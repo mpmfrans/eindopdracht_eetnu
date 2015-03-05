@@ -20,21 +20,27 @@ var settings = {
     
     // Save user settings
     saveSettings: function() {
-         localStorage.setting1 = $('#flip-1').val();
-         localStorage.setting2 = $('#flip-2').val();
+         localStorage.setting1 = $('#setting-1').val();
+         localStorage.setting2 = $('#setting-2').val();
          localStorage.range = $('#slider-1').val();
+         confirm("User settings are saved.");
     },
     
-    // Load user settings on startup.
+    // Load user settings on startup
     loadSettings: function() {
         var setting1 = window.localStorage.getItem("setting1");
         var setting2 = window.localStorage.getItem("setting2");
         var range = window.localStorage.getItem("range");
         
-        document.getElementById("flip-1").value = setting1;
-        document.getElementById("flip-2").value = setting2;
-        document.getElementById("slider-1").value = range;
+        // The flip settings
+        document.getElementById("setting-1").value = setting1;
+        document.getElementById("setting-2").value = setting2;
         
+        // The range slider setting and refresh
+        $("#slider-1").attr('value', range);
+        $("#slider-1").slider('refresh');
+        
+        // Refresh flip settings
         $(".setting").slider('refresh');
     },
 };    
