@@ -42,7 +42,7 @@
             
              //var pages = $('div[data-role="page"]').toArray();
              
-             $('div[data-role="page"]').bind('swipeleft', function(){
+             $('div[data-role="page"]').bind("swipeleft", function(){
                 var start = $(this);
                 var nextpage = $(start).next('div[data-role="page"]');
                 if (nextpage.length > 0) {
@@ -51,7 +51,7 @@
                     
                 }
             });
-            $('div[data-role="page"]').bind('swiperight', function(){
+            $('div[data-role="page"]').bind("swiperight", function(){
                 var start = $(this);
                 var prevpage =  $(start).prev('div[data-role="page"]');
                 console.log(prevpage);
