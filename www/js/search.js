@@ -13,11 +13,11 @@ var searchRestaurants ={
         function success(position) {
             Geo.lat = position.coords.latitude;
             Geo.lng = position.coords.longitude;
-            alert(Geo.lat, Geo.lng);
+            alert(Geo.lat + " " + Geo.lng);
         }
 
         function error(){
-            console.log("Geocoder failed");
+            alert("Geocoder failed");
         }
 
        
