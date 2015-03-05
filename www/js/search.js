@@ -1,8 +1,10 @@
+var Geo={};
+var search_range = localStorage.getItem("range");
+var search_url = "'https://api.eet.nu/venues?max_distance=" + search_range + "&geolocation=51.8589731,5.6046912'" ;
 var searchRestaurants ={
 
     getCurrentLocation: function(){
-        var Geo={};
-        var search_range = localStorage.getItem("range");
+        
 
         if (navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(success, error);
@@ -18,9 +20,14 @@ var searchRestaurants ={
             alert("Geocoder failed");
         } 
         
-        var search_url = "'https://api.eet.nu/venues?max_distance=" + search_range + "&geolocation=51.8589731,5.6046912'" ; 
+         
         
-        $(function(){
+       
+    }   
+};
+
+
+$(function(){
 
             $.ajax({
                 type: 'GET',
@@ -30,12 +37,7 @@ var searchRestaurants ={
                 }
 
             });
-        });
-    }   
-};
-
-
-
+});
 
 
     
