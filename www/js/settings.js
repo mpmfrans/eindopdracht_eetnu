@@ -17,44 +17,38 @@
  * under the License.
  */
 var settings = {
-    // Application Constructor
+    
+    // Save user settings
     saveSettings: function() {
          localStorage.setting1 = $('#flip-1').val();
          localStorage.setting2 = $('#flip-2').val();
          localStorage.range = $('#slider-1').val();
-         alert("Settings saved.");
     },
     
+    // Load user settings on startup.
     loadSettings: function() {
-        
         var setting1 = window.localStorage.getItem("setting1");
         var setting2 = window.localStorage.getItem("setting2");
         var range = window.localStorage.getItem("range");
         
         document.getElementById("flip-1").value = setting1;
-        $('#flip-1').slider('refresh');
         document.getElementById("flip-2").value = setting2;
-        $('#flip-2').slider('refresh');
         document.getElementById("slider-1").value = range;
-        $('#slider-1').slider('refresh');  
-    },
-    
-      showSettings: function() {
-        $(function() {
-    
-
-        var setting1 = window.localStorage.getItem("setting1");
-        var setting2 = window.localStorage.getItem("setting2");
-        var range = window.localStorage.getItem("range");
         
-        alert(setting1 + setting2 + range);
-            });
+        $(".setting").slider('refresh'); 
     },
-};
-
-$( "#settings" ).click(function() {
-  alert( "Handler for .click() called." );
-});
+};    
+    
+//      showSettings: function() {
+//        $(function() {
+//
+//        var setting1 = window.localStorage.getItem("setting1");
+//        var setting2 = window.localStorage.getItem("setting2");
+//        var range = window.localStorage.getItem("range");
+//        
+//        alert(setting1 + setting2 + range);
+//            });
+//    },
 
 
 

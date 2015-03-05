@@ -38,26 +38,19 @@
        <script>
          $(function(){
         
-             //var count = 0;
-            
-             //var pages = $('div[data-role="page"]').toArray();
-             
-             $('div.ui-page').bind("swipeleft", function(){
-                var start = $(this);
-                var nextpage = $(start).next('div[data-role="page"]');
-                if (nextpage.length > 0) {
-                    $.mobile.changePage(nextpage, {transition: "slide"});
+            $('div.ui-page').live("swipeleft", function(event){
+                var nextpage = $(this).next('div[data-role="page"]');
                 
-                    
+                if(nextpage.length > 0){
+                    $.mobile.changePage(nextpage, {transition: "slide"});
                 }
             });
-            $('div.ui-page').bind("swiperight", function(){
-                var start = $(this);
-                var prevpage =  $(start).prev('div[data-role="page"]');
-                console.log(prevpage);
-                if (prevpage.length > 0) {
+             
+            $('div.ui-page').live("swipeleft", function(event){
+                var prevpage = $(this).prev('div[data-role="page"]');
+                
+                if(nextpage.length > 0){
                     $.mobile.changePage(prevpage, {transition: "slide"});
-                    
                 }
             });
       
@@ -126,28 +119,28 @@
             </div>
             <div data-role="content" class="ui-content">
                  <label for="select1">Setting 1</label>
-                            <select id="flip-1" data-role="slider">
+                            <select id="flip-1" data-role="slider" class="setting">
                                 <option value="off" >Off</option>
                                 <option value="on" >On</option>
                             </select> 
                    
                   
                         <label for="flip-2">Setting 1</label>
-                            <select name="flip-2" id="flip-2" data-role="slider">
+                            <select name="flip-2" id="flip-2" data-role="slider" class="setting">
                                 <option value="Off">Off</option>
                                 <option value="On">On</option>
                             </select> 
                 
                    
                        <label for="slider-1">Range:</label>
-                       <input type="range" name="slider-1" id="slider-1" min="0" max="100"  />
+                       <input type="range" name="slider-1" id="slider-1" min="0" max="100" class="setting" />
                   
                 <button id="button" onclick=settings.saveSettings();>Save</button>
                    
                 <button id="button" onclick=settings.showSettings();>Show</button>
                 
              <div><button class="swipeleft">swipeleft</button></div
-                 ><div><button class="swiperight">swiperight</button></div>
+                 <div><button class="swiperight">swiperight</button></div>
                     
             </div>
             <div data-role="footer" data-position="fixed">
