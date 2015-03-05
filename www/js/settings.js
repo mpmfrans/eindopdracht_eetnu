@@ -35,7 +35,7 @@ var settings = {
         document.getElementById("flip-2").value = setting2;
         document.getElementById("slider-1").value = range;
         
-        $(".setting").slider('refresh'); 
+        $(".setting").slider('refresh');
     },
 };    
     
