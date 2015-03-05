@@ -45,7 +45,7 @@
                     $.mobile.changePage(nextpage, {transition: "slide"});
                 }
             });
-             
+             //reverse swipe
             $('div.ui-page').live("swipeleft", function(event){
                 var prevpage = $(this).prev('div[data-role="page"]');
                 
