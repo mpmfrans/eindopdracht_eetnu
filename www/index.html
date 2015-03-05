@@ -38,21 +38,51 @@
        <script>
          $(function(){
         
-            $('div.ui-page').live("swipeleft", function(event){
-                var nextpage = $(this).next('div[data-role="page"]');
-                
-                if(nextpage.length > 0){
-                    $.mobile.changePage(nextpage, {transition: "slide"});
-                }
-            });
-             //reverse swipe
-            $('div.ui-page').live("swipeleft", function(event){
-                var prevpage = $(this).prev('div[data-role="page"]');
-                
-                if(nextpage.length > 0){
-                    $.mobile.changePage(prevpage, {transition: "slide"});
-                }
-            });
+//            $('div.ui-page').live("swipeleft", function() {
+//                var nextpage = $(this).next('div[data-role="page"]');
+//                
+//                if(nextpage.length > 0){
+//                    $.mobile.changePage(nextpage, {transition: "slide"});
+//                }
+//            });
+//             //reverse swipe
+//            $('div.ui-page').live("swipeleft", function() {
+//                var prevpage = $(this).prev('div[data-role="page"]');
+//                
+//                if(nextpage.length > 0){
+//                    $.mobile.changePage(prevpage, {transition: "slide"});
+//                }
+//            });
+            var initialPage = '#main_page';
+            var navOrder = ['#history_page', initialPage];
+            swipeNavigation(initialPage, navOrder); 
+             
+        var swipeNavigation = function (initialPage, navOrder) {"use strict";
+            var currentIndex;
+
+    currentIndex = navOrder.indexOf(initialPage);
+
+    $('div.ui-page').live("swipeleft", function () {
+        var nextIndex = currentIndex + 1;
+        if (nextIndex < navOrder.length) {
+            $.mobile.changePage($(navOrder[nextIndex]), 'slide');
+            currentIndex = nextIndex;
+        }
+    });
+
+    $('div.ui-page').live("swiperight", function () {
+        var nextIndex = currentIndex - 1;
+        if (nextIndex > -1) {
+            $.mobile.changePage($(navOrder[nextIndex]), {transition: 'slide', reverse: 'true'});
+            currentIndex = nextIndex;
+        }
+    });
+
+};
+
+
+         
+
       
 
         });        
