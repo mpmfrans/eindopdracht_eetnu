@@ -37,7 +37,29 @@
         <script type="text/javascript" src="js/index.js"></script>
        <script>
          $(function(){
+        
+             //var count = 0;
+            
+             //var pages = $('div[data-role="page"]').toArray();
              
+             $('div[data-role="page"]').bind('swipeleft', function(){
+                var start = $(this);
+                var nextpage = $(start).next('div[data-role="page"]');
+                if (nextpage.length > 0) {
+                    $.mobile.changePage(nextpage, {transition: "slide"});
+                
+                    
+                }
+            });
+            $('div[data-role="page"]').bind('swiperight', function(){
+                var start = $(this);
+                var prevpage =  $(start).prev('div[data-role="page"]');
+                console.log(prevpage);
+                if (prevpage.length > 0) {
+                    $.mobile.changePage(prevpage, {transition: "slide"});
+                    
+                }
+            });
       
 
         });        
@@ -47,8 +69,8 @@
     
         <title>Hello World</title>
     </head>
-    <body>
-        <div data-role="page" data-theme="d" class="page" id="search#url.start#">
+    <body onload=settings.loadSettings();>
+        <div data-role="page" data-theme="d" id="index_page" class="page">
             <div data-role="header">
                 <h1>Eet.nu index</h1>
                 <div data-role="navbar">
@@ -69,7 +91,7 @@
             </div>   
         </div>
     <!-- ================================================================================================================================================================================ -->   
-        <div data-role="page" data-theme="d" class="page">
+        <div data-role="page" data-theme="d" id="search_page" class="page">
             <div data-role="header">
                 <h1>Eet.nu search</h1>
                 <div data-role="navbar">
@@ -91,7 +113,7 @@
             </div>   
         </div>
     <!-- ================================================================================================================================================================================ -->   
-        <div data-role="page" data-theme="d" class="page">
+        <div data-role="page" data-theme="d" id="settings_page" class="page">
             <div data-role="header">
                 <h1>Eet.nu settings</h1>
                 <div data-role="navbar">
