@@ -23,7 +23,8 @@ var settings = {
          localStorage.setting1 = $('#setting-1').val();
          localStorage.setting2 = $('#setting-2').val();
          localStorage.range = $('#slider-1').val();
-         confirm("User settings are saved.");
+        
+         $("#popupCloseRight").popup("open");
     },
     
     // Load user settings on startup
@@ -42,6 +43,8 @@ var settings = {
         
         // Refresh flip settings
         $(".setting").slider('refresh');
+        
+       
     },
 };    
     
