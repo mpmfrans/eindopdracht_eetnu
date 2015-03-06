@@ -20,9 +20,9 @@ var searchRestaurants ={
                 type: 'GET',
                 url: "https://api.eet.nu/venues?max_distance=" + search_range + "&geolocation=" + Geo.lat + "," + Geo.lng + "" ,
                 success: function(data){
+                    restaurants.empty();
                     restaurants.append("<h3>Search results:</h3>");
                     $.each(data.results, function(i, restaurant){
-                        restaurants.empty();
                         var name = restaurant.name;
                         var category = restaurant.category;
                         var telephone = restaurant.telephone;
