@@ -26,7 +26,7 @@ var searchRestaurants ={
                         var category = restaurant.category;
                         var telephone = restaurant.telephone;
                         
-                        restaurants.append($("<div data-role='collapsible' data-collapsed='true'><h3>"+name+"   Category: "+category+"</h3><span> Telephone: "+telephone+"</span></div>"));
+                        restaurants.append($("<div data-role='collapsible' data-collapsed='true' data-mini='true'><h3>"+name+"   Category: "+category+"</h3><span> Telephone: "+telephone+"</span></div>"));
                         restaurants.find('div[data-role=collapsible]').collapsible();  
                         });
                 }

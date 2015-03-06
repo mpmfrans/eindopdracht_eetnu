@@ -24,7 +24,7 @@ var settings = {
          localStorage.setting2 = $('#setting-2').val();
          localStorage.range = $('#slider-1').val();
         
-         $("#popupCloseRight").popup("open");
+         confirm("Settings are saved");
     },
     
     // Load user settings on startup
