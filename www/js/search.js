@@ -6,7 +6,7 @@ var searchRestaurants = {
         var search_range = localStorage.getItem("range");
     
         if (navigator.geolocation) {
-           navigator.geolocation.getCurrentPosition(success, error);
+           var id = navigator.geolocation.watchPosition(success, error);
         }
 
         //Get the latitude and the longitude;
@@ -94,7 +94,9 @@ var searchRestaurants = {
                     }
                    
                     }
-                });  
+                });
+            
+            navigator.geolocation.clearWatch(id);
             } 
      
         function error(){
