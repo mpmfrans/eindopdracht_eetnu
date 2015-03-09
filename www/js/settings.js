@@ -22,7 +22,8 @@ var settings = {
     saveSettings: function() {
          localStorage.setting1 = $('#setting-1').val();
          localStorage.setting2 = $('#setting-2').val();
-         localStorage.range = $('#slider-1').val();
+         localStorage.meters = $('#slider-1').val();
+         localStorage.kilometers = $('#slider-2').val();
         
          confirm("Settings are saved");
     },
@@ -31,19 +32,23 @@ var settings = {
     loadSettings: function() {
         var setting1 = window.localStorage.getItem("setting1");
         var setting2 = window.localStorage.getItem("setting2");
-        var range = window.localStorage.getItem("range");
+        var meters = window.localStorage.getItem("meters");
+        var kilometers = window.localStorage.getItem("kilometers");
         
         // The flip settings
         document.getElementById("setting-1").value = setting1;
         document.getElementById("setting-2").value = setting2;
         
-        // The range slider setting and refresh
-        $("#slider-1").attr('value', range);
-        $("#slider-1").slider('refresh');
+         // The meters range slider setting and refresh
+        $("#slider-1").attr('value', meters);
+        //$("#slider-1").slider('refresh');
+        
+        // The kilometers range slider setting and refresh
+        $("#slider-2").attr('value', kilometers);
+       // $("#slider-2").slider('refresh');
         
         // Refresh flip settings
-        $(".setting").slider('refresh');
-        
+        $(".setting").slider('refresh'); 
        
     },
 };    

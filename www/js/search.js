@@ -1,107 +1,109 @@
 var searchRestaurants = {
     
     getCurrentLocation: function(index) {
-            
+              
         var Geo = {};
-        var search_range = localStorage.getItem("range");
+        var meters = localStorage.getItem("meters") / 1000;
+        var kilometers = localStorage.getItem("kilometers");
+        var restaurant_list = $("#restaurants");
+        var search_content = $("#search_content");
+        
+        var total_search_range = Number(kilometers) + Number(meters);
+        
+        restaurant_list.empty();
     
         if (navigator.geolocation) {
-           var id = navigator.geolocation.watchPosition(success, error);
+           var id = navigator.geolocation.getCurrentPosition(success, error);
         }
 
         //Get the latitude and the longitude;
         function success(position) {
-            //Geo.lat = position.coords.latitude;
-            //Geo.lng = position.coords.longitude;
-            
-           
-            
-            //console.log(str_index);
-            var restaurants = $("#restaurants");
         
             if(index == null || index == "null"){
                 var count = 1;
             }else{
                  count =  index;
             }
-//            
+            
             console.log(count);
-            //localStorage.setItem("counter", counter);
-             
                 
                 $.ajax({
                 type: 'GET',
-                url: "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ search_range +"&page="+count+"&per_page=30",
+                url: "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=30",
                
                 success: function(data){
                     
-                    restaurants.empty();
-                    restaurants.append("<h3>Search results:</h3>");
+                    restaurant_list.append("<li><h3>Search results:</h3>"+"<span style='float:right'><label for='province'>Province</label></span></li>");
+                    
                     var total_pages = data.pagination.total_pages;
-                    //var next_page = '"'+ data.pagination.next_page + '"';
-                   // var current_page = data.pagination.current_page;
-                   
-                    
-                    console.log(total_pages);
-//console.log(current_page);
-                    //console.log(next_page);
-                    
+                               
                     $.each(data.results, function(i, restaurant){
                         var name = restaurant.name;
                         var category = restaurant.category;
                         var telephone = restaurant.telephone;
+                        /*
+                       Following code can be used to create collapsible items    
                         
-                        restaurants.append($("<div data-role='collapsible' data-collapsed='true' data-mini='true'><h3>"+name+"   Category: "+ category+
-                                             "</h3><span> Telephone: " + telephone +"</span></div>"));
-                        restaurants.find('div[data-role=collapsible]').collapsible();  
+                       restaurants.append($("<div data-role='collapsible' data-collapsed='true' data-mini='true'><h3>"+name+"Category: "+ category+
+                                            "</h3><span> Telephone: " + telephone +"</span></div>"));
+                       restaurants.find('div[data-role=collapsible]').collapsible();    
+                        */
                         
-                        
+                       restaurant_list.append($("<li><a href='#' data-icon='arrow-r' data-role='listview'>"+name+"</a></li>"));
+                       restaurant_list.listview('refresh');
+                            
                     });
-                 //   count++;
-                    
-                  
-                      // restaurants.append("<br><button id='next' onclick=searchRestaurants.getCurrentLocation(" + count + ");>next</button>"); 
                    
                     if(count == 1 && count < total_pages){
-                        restaurants.append("<br><div><button id='next' class='ui-btn' data-inline='true'>next</button></div>");
-                        $("#next").click( function(){
-                            count++;                 
+                        
+                        restaurant_list.append("<p>["+count+"-"+total_pages+"]</p>");
+                        restaurant_list.append("<fieldset class='ui-grid-a'>");
+                        restaurant_list.append("<div class='ui-block-a'><button id='next' data-role='button' class='ui-btn' data-inline='true'>next</button></div>");
+                        restaurant_list.append("</fieldset>");
+                        
+                        $("#next").on('tap', function(){
+                            count++; 
                             searchRestaurants.getCurrentLocation(count);                 
                                          
                         });
                     
                     }else if(count >= 2 && count < total_pages){
-                        restaurants.append("<br><div><button id='next' class='ui-btn'>next</button><button id='previous' class='ui-btn'>previous</button></div>");
-                        $("#next").click( function(){
-                            count++;                 
+                        restaurant_list.append("<p>["+count+"-"+total_pages+"]</p>");
+                        restaurant_list.append("<fieldset class='ui-grid-a'>");
+                        restaurant_list.append("<div class='ui-block-a'><button id='previous' class='ui-btn' data-inline='true' data-role='button'>previous</button></div>");
+                        restaurant_list.append("<div class='ui-block-b'><button id='next' data-role='button' class='ui-btn' data-inline='true'>next</button></div>");
+                        restaurant_list.append("</fieldset>");    
+                        
+                        $("#next").on('tap', function(){
+                            count++;   
                             searchRestaurants.getCurrentLocation(count);                 
                                          
                         });
-                        $("#previous").click( function(){
-                            count--;                 
+                        $("#previous").on('tap', function(){
+                            count--;  
                             searchRestaurants.getCurrentLocation(count);                 
                                          
                         });
-                    }else if(count == total_pages){
-                        restaurants.append("<br><div><button id='previous'>previous</button></div>");
-                        $("#previous").click( function(){
-                            count--;                 
+                    }else if(count == total_pages && count != 1){
+                        restaurant_list.append("<p>["+count+"-"+total_pages+"]</p>");
+                        restaurant_list.append("<fieldset class='ui-grid-a'>");
+                        restaurant_list.append("<div class='ui-block-a'><button id='previous' class='ui-btn' data-inline='true' data-role='button'>previous</button></div>");
+                        restaurant_list.append("</fieldset>");
+                        $("#previous").on('tap', function(){
+                            count--;    
                             searchRestaurants.getCurrentLocation(count);                 
                                          
                         });
-                    
-                    
                     }
                    
                     }
                 });
-            
-            navigator.geolocation.clearWatch(id);
             } 
      
         function error(){
-            alert("Geocoder failed");
-        }  
+            alert("Get current geolocation failed");
+        } 
+        
     }
 };
 

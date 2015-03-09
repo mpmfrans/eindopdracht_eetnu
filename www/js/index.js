@@ -48,9 +48,18 @@ var app = {
     }
 };
 
+
   
 
 
+
+
+//$(function (){
+//    $("#nav_bar").append("<li><a href='#index_page' data-icon='home' data-transition='none'></a></li>");
+//    //$("#nav_bar").append("<li><a href='#search_page' data-icon='search' id='search' data-transition='none' onclick=searchRestaurants.getCurrentLocation('1');></a></li>");
+//    $("#nav_bar").append("<li><a href='#settings_page' data-icon='gear' id='settings' data-transition='none' ></a></li>");
+//
+//});
 
 
 

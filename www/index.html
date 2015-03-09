@@ -66,13 +66,21 @@
             
         
         </script>
+  
     
         <title>Hello World</title>
     </head>
     <body onload=settings.loadSettings();>
         <div class="app">
         <div data-role="page" data-theme="d" id="index_page" class="page">
+            <div data-role="panel" id="eetnupanel" data-position="left" data-display="overlay" data-icon="home" data-theme="d">
+                  <ul data-role="listview">
+                    <li  data-icon="false"><a href="#">About</a></li> 
+                    <li  data-icon="false"><a href="#">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page">Settings</a></li> 
+            </ul></div>
             <div data-role="header">
+                <a href="#eetnupanel" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu index</h1>
                 <div data-role="navbar">
                     <ul>
@@ -84,8 +92,6 @@
             </div>
             <div data-role="content" class="ui-content">
               
-                <div><button class="swipeleft">swipeleft</button></div>
-                <div><button class="swiperight">swiperight</button></div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
@@ -93,7 +99,14 @@
         </div>
     <!-- ================================================================================================================================================================================ -->   
         <div data-role="page" data-theme="d" id="search_page" class="page">
+            <div data-role="panel" id="eetnupanel" data-position="left" data-display="overlay" data-icon="home" data-theme="d">
+                 <ul data-role="listview">
+                    <li  data-icon="false"><a href="#">About</a></li> 
+                    <li  data-icon="false"><a href="#">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_pane">Settings</a></li> 
+            </ul></div>
             <div data-role="header">
+                 <a href="#eetnupanel" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu search</h1>
                 <div data-role="navbar">
                     <ul>
@@ -104,11 +117,7 @@
                 </div>
             </div>
             <div data-role="content" class="ui-content" id="search_content">
-                <div><button class="swipeleft">swipeleft</button></div>
-                <div><button class="swiperight">swiperight</button></div>
-                <div id="restaurants" data-role="collapsibleset" data-theme="d">
-                 
-                </div>
+                <ul id="restaurants" data-role="listview" data-theme="d"></ul>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
@@ -116,7 +125,16 @@
         </div>
     <!-- ================================================================================================================================================================================ -->   
         <div data-role="page" data-theme="d" id="settings_page" class="page">
+            <div data-role="panel" id="eetnupanel" data-position="left" data-display="overlay" data-icon="home" data-theme="d">
+                <ul data-role="listview">
+                    <li  data-icon="false"><a href="#">About</a></li> 
+                    <li  data-icon="false"><a href="#">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_pane">Settings</a></li> 
+            </ul>        
+            </div>
+            
             <div data-role="header">
+                 <a href="#eetnupanel" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu settings</h1>
                 <div data-role="navbar">
                     <ul>
@@ -140,13 +158,13 @@
                                 <option value="On">On</option>
                             </select> 
                 
-                       <label for="slider-1">Range:</label>
-                       <input type="range" id="slider-1" min="0" max="100" value="5" data-highlight="true" />
+                       <label for="slider-1">Range in meters:</label>
+                       <input type="range" id="slider-1" min="0" max="1000" value="0" data-highlight="true" class="setting" />
+                
+                       <label for="slider-2">Range in kilometers:</label>
+                       <input type="range" id="slider-2" min="0" max="100" value="0" data-highlight="true" class="setting" />
                   
                 <button id="button" onclick=settings.saveSettings();>Save</button>
-                
-             <div><button class="swipeleft">swipeleft</button></div>
-                 <div><button class="swiperight">swiperight</button></div>
                     
             </div>
             <div data-role="footer" data-position="fixed">
