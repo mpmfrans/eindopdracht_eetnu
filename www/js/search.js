@@ -30,7 +30,7 @@ var searchRestaurants = {
                 
                 $.ajax({
                 type: 'GET',
-                url: "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=30",
+                url: "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=20",
                
                 success: function(data){
                     
