@@ -11,8 +11,8 @@ var searchRestaurants = {
 
         //Get the latitude and the longitude;
         function success(position) {
-            Geo.lat = position.coords.latitude;
-            Geo.lng = position.coords.longitude;
+            //Geo.lat = position.coords.latitude;
+            //Geo.lng = position.coords.longitude;
             
            
             
@@ -31,7 +31,7 @@ var searchRestaurants = {
                 
                 $.ajax({
                 type: 'GET',
-                url: "https://api.eet.nu/venues?geolocation=" + Geo.lat + "," + Geo.lng + "&max_distance="+ search_range +"&page="+count+"&per_page=30",
+                url: "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ search_range +"&page="+count+"&per_page=30",
                
                 success: function(data){
                     
@@ -95,12 +95,11 @@ var searchRestaurants = {
                    
                     }
                 });  
-            }
-        
-        
+            } 
+     
         function error(){
             alert("Geocoder failed");
-        }   
+        }  
     }
 };
 
