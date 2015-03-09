@@ -129,8 +129,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             
             $("#details_content").append("<h1>"+name+"</h1>");
             $("#details_content").append('<p>Telephone: </p><a href="tel:'+telephone+'">'+telephone+'</a></br></br>');
-            $("#details_content").append("<p>Website: </p><a href="+website_url+">"+website_url+"</a>");
-            
+            $("#details_content").append("<p>Website: </p><a href="+website_url+">"+website_url+"</a>"); 
         }        
     
     });
