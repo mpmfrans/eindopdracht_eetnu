@@ -51,16 +51,16 @@ var app = {
 
 $(document).on('swipeleft swiperight', function(event){
      if (event.type == "swiperight"){
-        var nextpage = $('div.ui-page').next('div[data-role="page"]');
+        var nextpage = $(this).next('div[id="swipepage"]');
+        
         if (nextpage.length > 0) {
             $.mobile.changePage(nextpage, {transition: "slide"});
         }
+       
      }
     if (event.type == "swipeleft"){
-        var prevpage = $('div.ui-page').prev('div[data-role="page"]');
-        if (prevpage.length > 0) {
-        $.mobile.changePage(prevpage, {transition: "slide"});
-        }
+       
+         alert("test");
     }
 });
 
