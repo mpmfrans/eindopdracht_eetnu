@@ -49,8 +49,13 @@ var app = {
 };
 
 
-$(document).on('swiperight', function(){
-    alert("test");
+$(document).on('swipeleft swiperight', function(event){
+     if (event.type == "swiperight"){
+        alert("right");
+     }
+    if (event.type == "swipeleft"){
+        alert("left");
+    }
 });
 
 
