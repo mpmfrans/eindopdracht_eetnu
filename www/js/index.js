@@ -50,14 +50,36 @@ var app = {
 
 
 $(document).on('swipeleft swiperight', function(event){
-     var current = event.currentTarget;
+     var current = $('div[data-role="page"]').attr('id');
     
-     if (event.type == "swipeleft"){
-       alert(current);
+     if(current == "index_page"){
+         if (event.type == "swipeleft"){
+            $.mobile.changePage("#search_page", {transition: "slide"});
+            current = null;
+         }
+         if (event.type == "swiperight"){
+             return;
+         }
      }
-    if (event.type == "swiperight"){
-         alert("test");
-    }
+     if(current == "search_page"){
+         if (event.type == "swipeleft"){
+            $.mobile.changePage("#settings_page", {transition: "slide"});
+            current = null;
+         }
+         if (event.type == "swiperight"){
+             $.mobile.changePage("#index_page", {transition: "slide"});
+            current = null;
+         }
+     }
+     if(current == "settings_page"){
+         if (event.type == "swipeleft"){
+            return;
+         }
+         if (event.type == "swiperight"){
+            $.mobile.changePage("#search_page", {transition: "slide"});
+            current = null;
+         }
+     }
 });
 
 
