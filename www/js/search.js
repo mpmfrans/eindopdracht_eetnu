@@ -1,17 +1,20 @@
-
-
-
 var searchRestaurants = {
     
-    getCurrentLocation: function(index) {
+    getCurrentLocation: function(index, query, filter) {
               
         var Geo = {};
-        var meters = localStorage.getItem("meters") / 1000;
-        var kilometers = localStorage.getItem("kilometers");
+       
         var restaurant_list = $("#restaurants");
         var search_content = $("#search_content");
+        var meters = localStorage.getItem("meters") / 1000;
+        var kilometers = localStorage.getItem("kilometers");
+        var search_query = query;
         
         var total_search_range = Number(kilometers) + Number(meters);
+        
+        var filter = $('input[name=radio-choice-1]:checked', '#filter_form').val()
+        localStorage.setItem("filter", filter);
+   
         
         restaurant_list.empty();
     
@@ -27,14 +30,22 @@ var searchRestaurants = {
             }else{
                  count =  index;
             }
+            
+            if(search_query == null || search_query == "null" && filter == null || filter == "null"){
+                var venues_url = "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=20&sort_by="+filter;
+            }else{
+                venues_url = "https://api.eet.nu/venues?query="+search_query+"&max_distance="+ total_search_range +"&geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&page="+count+"&per_page=20&sort_by="+filter;
+            }
                 
                 $.ajax({
                 type: 'GET',
-                url: "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=20",
+                url: venues_url,
+                    
+                    
                
                 success: function(data){
                     
-                    restaurant_list.append("<li><h3>Search results:</h3>"+"<span style='float:right'><label for='province'>Province</label></span></li>");
+                    //restaurant_list.append("<li><h3>Search results:</h3>"+"<span style='float:right'><label for='province'>Province</label></span></li>");
                     
                     var total_pages = data.pagination.total_pages;
                                
@@ -55,8 +66,6 @@ var searchRestaurants = {
                         
                     });
                     
-                  
-                   
                     if(count == 1 && count < total_pages){
                         
                         restaurant_list.append("<p>["+count+"-"+total_pages+"]</p>");
@@ -66,7 +75,7 @@ var searchRestaurants = {
                         
                         $("#next").on('tap', function(){
                             count++; 
-                            searchRestaurants.getCurrentLocation(count);                                 
+                            searchRestaurants.getCurrentLocation(count, search_query);                                 
                         });
                     
                     }else if(count >= 2 && count < total_pages){
@@ -78,11 +87,11 @@ var searchRestaurants = {
                         
                         $("#next").on('tap', function(){
                             count++;   
-                            searchRestaurants.getCurrentLocation(count);                                
+                            searchRestaurants.getCurrentLocation(count, search_query);                                
                         });
                         $("#previous").on('tap', function(){
                             count--;  
-                            searchRestaurants.getCurrentLocation(count);                 
+                            searchRestaurants.getCurrentLocation(count, search_query);                 
                                          
                         });
                         
@@ -93,7 +102,7 @@ var searchRestaurants = {
                         restaurant_list.append("</fieldset>");
                         $("#previous").on('tap', function(){
                             count--;    
-                            searchRestaurants.getCurrentLocation(count);                               
+                            searchRestaurants.getCurrentLocation(count, search_query);                               
                         });
                     }
                    
@@ -104,7 +113,6 @@ var searchRestaurants = {
         function error(){
             alert("Get current geolocation failed");
         } 
-        
     }
 };
 
@@ -135,6 +143,38 @@ $(document).on("pagebeforeshow","#details_page",function(event){
     });
    
 });
+
+$(document).on('input','#search-mini',function(e){
+        var value = $(this).val();
+        var filter = localStorage.getItem("filter");
+        localStorage.setItem("search_query", value);
+        $("#details_content").empty();
+        searchRestaurants.getCurrentLocation(null, value, filter);
+});
+
+$(document).on('tap','#search-mini',function(e){
+        var value = $(this).val();
+        var filter = localStorage.getItem("filter");
+        localStorage.setItem("search_query", value);
+        $("#details_content").empty();
+        searchRestaurants.getCurrentLocation(null, value, filter);
+});
+
+$(document).on('tap', '.ui-input-clear', function () {
+   var filter = localStorage.getItem("filter");
+   $("#details_content").empty();
+   searchRestaurants.getCurrentLocation(null, null, filter);
+});
+
+$(document).on('change', '[type="radio"]', function(){ 
+    var filter = $('input[name=radio-choice-1]:checked', '#filter_form').val()
+    localStorage.setItem("filter", filter); 
+}); 
+
+$(document).on('tap', '#filter_back', function(){
+        parent.history.back();
+});
+
 
 
 
