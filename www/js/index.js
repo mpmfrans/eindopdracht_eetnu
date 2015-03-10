@@ -49,7 +49,7 @@ var app = {
 };
 
 
-$(document).on('swipeleft swiperight', function(event){
+$('div.ui-page').on('swipeleft swiperight', function(event){
      if (event.type == "swiperight"){
         var nextpage = $(this).next('div[data-role="page"]');
         if (nextpage.length > 0) {
