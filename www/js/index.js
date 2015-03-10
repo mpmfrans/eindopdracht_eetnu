@@ -50,16 +50,12 @@ var app = {
 
 
 $(document).on('swipeleft swiperight', function(event){
+     var current = $(event).currentTarget;
+    
      if (event.type == "swipeleft"){
-        var nextpage = $('div[data-role="page"]').next('div[data-role="page"]');
-        
-        if (nextpage.length > 0) {
-            $.mobile.changePage(nextpage, {transition: "slide"});
-        }
-       
+       alert(current);
      }
     if (event.type == "swiperight"){
-       
          alert("test");
     }
 });
