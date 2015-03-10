@@ -148,7 +148,6 @@ $(document).on('input','#search-mini',function(e){
         var value = $(this).val();
         var filter = localStorage.getItem("filter");
         localStorage.setItem("search_query", value);
-        $("#details_content").empty();
         searchRestaurants.getCurrentLocation(null, value, filter);
 });
 
@@ -156,13 +155,11 @@ $(document).on('tap','#search-mini',function(e){
         var value = $(this).val();
         var filter = localStorage.getItem("filter");
         localStorage.setItem("search_query", value);
-        $("#details_content").empty();
         searchRestaurants.getCurrentLocation(null, value, filter);
 });
 
 $(document).on('tap', '.ui-input-clear', function () {
    var filter = localStorage.getItem("filter");
-   $("#details_content").empty();
    searchRestaurants.getCurrentLocation(null, null, filter);
 });
 
