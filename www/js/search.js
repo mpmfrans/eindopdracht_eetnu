@@ -61,7 +61,7 @@ var searchRestaurants = {
                                                 "</h3><span> Telephone: " + telephone +"</span></div>"));
                            restaurants.find('div[data-role=collapsible]').collapsible();    
                         */
-                       restaurant_list.append($("<li><a href='#details_page' id='restaurant_details' data-icon='arrow-r' data-role='listview' data-id="+id+">"+name+"</a></li>"));
+                       restaurant_list.append($("<li><a href='#details_page' id='restaurant_details' data-icon='arrow-r'  data-role='listview' data-id="+id+">"+name+"</a></li>"));
                        restaurant_list.listview('refresh');  
                         
                     });
