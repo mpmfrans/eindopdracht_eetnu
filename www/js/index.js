@@ -50,7 +50,7 @@ var app = {
 
 
 $(document).on('swipeleft swiperight', function(event){
-     var current = $(event).currentTarget;
+     var current = event.currentTarget;
     
      if (event.type == "swipeleft"){
        alert(current);
