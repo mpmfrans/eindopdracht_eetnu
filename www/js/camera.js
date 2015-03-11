@@ -1,17 +1,16 @@
 var memorize = {
     takeAPicture: function(){
+        
         navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-            destinationType: Camera.DestinationType.DATA_URL
-        });
+        destinationType: Camera.DestinationType.FILE_URI });
 
-        function onSuccess(imageData) {
+        function onSuccess(imageURI) {
             var image = document.getElementById('myImage');
-            image.src = "data:image/jpeg;base64," + imageData;
+            image.src = imageURI;
         }
 
         function onFail(message) {
             alert('Failed because: ' + message);
         }
-    
     }
 };
