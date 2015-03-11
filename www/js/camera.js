@@ -1,9 +1,10 @@
 $(document).on('tap','#take_a_picture',function(e){
         
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        destinationType: Camera.DestinationType.FILE_URI });
-
-        function onSuccess(imageURI) {
+     if (navigator.camera) {
+            navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });
+     }
+    
+    function onSuccess(imageURI) {
         var image = document.getElementById('myImage');
         image.src = imageURI;
     }
