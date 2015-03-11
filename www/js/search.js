@@ -159,6 +159,8 @@ $(document).on("pagebeforeshow","#details_page",function(event){
                     readOnly: true
             });
             $('#rate_number').text("Rating: "+rating_res);
+            
+            
         }        
     
     });
