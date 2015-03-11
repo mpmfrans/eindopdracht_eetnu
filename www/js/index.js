@@ -79,6 +79,7 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
             return;
          }
      }
+     searchRestaurants.getCurrentLocation(null, null, filter);
 });
 
 

@@ -49,6 +49,8 @@ var settings = {
         
         // Refresh flip settings
         $(".setting").slider('refresh'); 
+        
+        
        
     },
 };    

@@ -30,43 +30,14 @@
         <link rel="stylesheet" href="css/themes/eetNuApp.css" />
         <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+   
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="/plugins/jRate-master/src/jRate.js"></script> 
         <script type="text/javascript" src="js/search.js"></script>
+        <script type="text/javascript" src="js/camera.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-       <script>
-         $(function(){
-             
-          
-
-        
-//            $('div.ui-page').live("swipeleft", function() {
-//                var nextpage = $(this).next('div[data-role="page"]');
-//                
-//                if(nextpage.length > 0){
-//                    $.mobile.changePage(nextpage, {transition: "slide"});
-//                }
-//            });
-//             //reverse swipe
-//            $('div.ui-page').live("swipeleft", function() {
-//                var prevpage = $(this).prev('div[data-role="page"]');
-//                
-//                if(nextpage.length > 0){
-//                    $.mobile.changePage(prevpage, {transition: "slide"});
-//                }
-//            });
-
-
-         
-
-      
-
-        });        
-            
-        
-        </script>
-  
     
         <title>Hello World</title>
     </head>
@@ -75,9 +46,10 @@
         <div data-role="page" data-theme="d" id="index_page" class="page">
             <div data-role="panel" id="eetnupanelindex" data-position="left" data-display="overlay" data-theme="d">
                   <ul data-role="listview">
-                    <li  data-icon="false"><a href="#">About</a></li> 
-                    <li  data-icon="false"><a href="#">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_page">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" onclick=memorize.takeAPicture();>Camera</a></li> 
             </ul></div>
             <div data-role="header">
                 <a href="#eetnupanelindex" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
@@ -95,7 +67,8 @@
                 <p>Enjoy this free Eet.nu app that helps you to search for your favorite restaurants! Bon Appétit!</p></br>
             <p>Step 1: Change settings (distance)</p>
             <p>Step 2: Search for restaurants</p>
-            <p>Step 3: Enjoy you dinner!</p>      
+            <p>Step 3: Enjoy you dinner!</p>  
+            
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
@@ -105,9 +78,10 @@
         <div data-role="page" data-theme="d" id="search_page" class="page">
             <div data-role="panel" id="eetnupanelsearch" data-position="left" data-display="overlay" data-theme="d">
                  <ul data-role="listview">
-                    <li  data-icon="false"><a href="#">About</a></li> 
-                    <li  data-icon="false"><a href="#">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_page">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" onclick=memorize.takeAPicture();>Camera</a></li>  
             </ul></div>
             <div data-role="header">
                  <a href="#eetnupanelsearch" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
@@ -164,9 +138,10 @@
         <div data-role="page" data-theme="d" id="settings_page" class="page">
             <div data-role="panel" id="eetnupanelsettings" data-position="left" data-display="overlay" data-theme="d">
                 <ul data-role="listview">
-                    <li  data-icon="false"><a href="#">About</a></li> 
-                    <li  data-icon="false"><a href="#">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_pane">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" onclick=memorize.takeAPicture();>Camera</a></li> 
             </ul>        
             </div>
             
@@ -181,7 +156,7 @@
                     </ul>
                 </div>
             </div>
-            <div data-role="content" class="ui-content">
+            <div data-role="content" class="ui-content" id="settings_content">
                  <label for="setting-1">Setting 1:</label>
                             <select id="setting-1" data-role="slider" class="setting">
                                 <option value="off" >Off</option>
@@ -208,12 +183,13 @@
             </div>
         </div>
     <!-- ================================================================================================================================================================================ -->
-              <div data-role="page" data-theme="d" id="details_page" class="page">
+        <div data-role="page" data-theme="d" id="details_page" class="page">
             <div data-role="panel" id="eetnupanelindex" data-position="left" data-display="overlay" data-theme="d">
                   <ul data-role="listview">
-                    <li  data-icon="false"><a href="#">About</a></li> 
-                    <li  data-icon="false"><a href="#">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_page">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" onclick=memorize.takeAPicture();>Camera</a></li> 
             </ul></div>
             <div data-role="header">
                 <a href="#eetnupanelindex" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
@@ -227,7 +203,7 @@
                 </div>
             </div>
             <div data-role="content" class="ui-content" id="details_content">
-            
+                           
             </div>
                   <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>

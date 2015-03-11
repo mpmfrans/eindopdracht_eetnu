@@ -134,10 +134,31 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             var name = restaurant.name;
             var telephone = restaurant.telephone;
             var website_url = restaurant.website_url;
+            var rating_res = restaurant.rating;
+            var street = restaurant.address.street;
+            var zipcode = restaurant.address.zipcode;
+            var city = restaurant.address.city;
+            var category_res = restaurant.category;
             
-            $("#details_content").append("<h1>"+name+"</h1>");
-            $("#details_content").append('<p>Telephone: </p><a href="tel:'+telephone+'">'+telephone+'</a></br></br>');
-            $("#details_content").append("<p>Website: </p><a href="+website_url+">"+website_url+"</a>"); 
+            
+            $("#details_content").append("<h1>"+name+"</h1><h3>"+category_res+"</h3>");
+            $("#details_content").append("<p>Street: "+street+"</p>");
+            $("#details_content").append("<p>Zipcode: "+zipcode+"</p>");
+            $("#details_content").append("<p>City: "+city+"</p>");
+            $("#details_content").append('<p>Telephone: <a href="tel:'+telephone+'">'+telephone+'</a></p>');
+            $("#details_content").append("<p>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
+            $("#details_content").append("<div id='jRate'></div><div id='rate_number'></div>"); 
+            $("#jRate").jRate({
+                    startColor: 'orange',
+		            endColor: 'orange',
+                    width: 30,
+		            height: 30,
+                    min: 0,
+		            max: 100,
+                    rating: rating_res,
+                    readOnly: true
+            });
+            $('#rate_number').text("Rating: "+rating_res);
         }        
     
     });
