@@ -1,6 +1,4 @@
-var memorize = {
-    takeAPicture: function(){
-        
+function takePicture(){      
         navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
         destinationType: Camera.DestinationType.FILE_URI });
 
@@ -13,4 +11,3 @@ var memorize = {
             alert('Failed because: ' + message);
         }
     }
-};
