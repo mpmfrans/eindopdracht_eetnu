@@ -53,7 +53,7 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
     
      if($.mobile.activePage.attr('id') == "index_page"){
          if (event.type == "swipeleft"){
-            $.mobile.changePage("#search_page");
+            $.mobile.changePage("#search_page", {transition: "none"});
             return;
          }
          if (event.type == "swiperight"){
@@ -62,11 +62,11 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
      }
      if($.mobile.activePage.attr('id') == "search_page"){
          if (event.type == "swipeleft"){
-            $.mobile.changePage("#settings_page");
+            $.mobile.changePage("#settings_page", {transition: "none"});
             return;
          }
          if (event.type == "swiperight"){
-             $.mobile.changePage("#index_page");
+             $.mobile.changePage("#index_page", {transition: "none"});
              return;
          }
      }
@@ -75,7 +75,7 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
             return;
          }
          if (event.type == "swiperight"){
-            $.mobile.changePage("#search_page");
+            $.mobile.changePage("#search_page", {transition: "none"});
             return;
          }
      }
