@@ -50,34 +50,33 @@ var app = {
 
 
 $(document).on('swipeleft swiperight', function(event){
-     var current = $('div[data-role="page"]').attr('id');
     
-     if(current == "index_page"){
+     if($.mobile.activePage.attr('id') == "index_page"){
          if (event.type == "swipeleft"){
             $.mobile.changePage("#search_page", {transition: "slide"});
-            current = null;
+            return;
          }
          if (event.type == "swiperight"){
              return;
          }
      }
-     if(current == "search_page"){
+     if($.mobile.activePage.attr('id') == "search_page"){
          if (event.type == "swipeleft"){
             $.mobile.changePage("#settings_page", {transition: "slide"});
-            current = null;
+            return;
          }
          if (event.type == "swiperight"){
              $.mobile.changePage("#index_page", {transition: "slide"});
-            current = null;
+             return;
          }
      }
-     if(current == "settings_page"){
+     if($.mobile.activePage.attr('id') == "settings_page"){
          if (event.type == "swipeleft"){
             return;
          }
          if (event.type == "swiperight"){
             $.mobile.changePage("#search_page", {transition: "slide"});
-            current = null;
+            return;
          }
      }
 });
