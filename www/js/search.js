@@ -150,10 +150,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append("<div id='jRate'></div><div id='rate_number'></div>"); 
             $("#details_content").append("<div id='htmlRating' data-role='igrating' data-value='2'></div>"); 
             
-            $("#jRate").raty({ score: rating_res,
-                             number: 10,
-                              readOnly: true
-                             });
+                
             
             
             //$("#jRate").jRate({
