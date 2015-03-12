@@ -134,7 +134,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             var name = restaurant.name;
             var telephone = restaurant.telephone;
             var website_url = restaurant.website_url;
-            var rating_res = restaurant.rating;
+            var rating_res = restaurant.rating / 10;
             var street = restaurant.address.street;
             var zipcode = restaurant.address.zipcode;
             var city = restaurant.address.city;
@@ -148,16 +148,16 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append('<p>Telephone: <a href="tel:'+telephone+'">'+telephone+'</a></p>');
             $("#details_content").append("<p>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
             $("#details_content").append("<div id='jRate'></div><div id='rate_number'></div>"); 
-//            $("#jRate").jRate({
-//                    startColor: 'orange',
-//		            endColor: 'orange',
-//                    width: 30,
-//		            height: 30,
-//                    min: 0,
-//		            max: 100,
-//                    rating: rating_res,
-//                    readOnly: true
-//            });
+            $("#jRate").jRate({
+                    startColor: 'orange',
+		            endColor: 'orange',
+                    width: 30,
+		            height: 30,
+                    min: 0,
+		            max: 10,
+                    rating: rating_res,
+                    readOnly: true
+            });
             $('#rate_number').text("Rating: "+rating_res);
             
             
