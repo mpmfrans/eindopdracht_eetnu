@@ -146,7 +146,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append("<p>City: "+city+"</p>");
             $("#details_content").append('<p>Telephone: <a href="tel:'+telephone+'">'+telephone+'</a></p>');
             $("#details_content").append("<p id='website_url'>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
-            $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
+            //$("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
             
             if(website_url == null || website_url == "null"){
                 $("#website_url").hide();
@@ -164,7 +164,6 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             });
             $('#rate_number').text("Rating: "+rating_res);
             
-            $("#jRate").show();
             
         }        
     
