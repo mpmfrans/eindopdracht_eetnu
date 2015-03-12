@@ -1,16 +1,13 @@
-        $(document).on('tap','#take_a_picture',function(e){
-        
-     if (navigator.camera) {
-            navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });
-     }
+$(document).on('tap','#take_a_picture',function(e){
     
-    function onSuccess(imageURI) {
-        var image = document.getElementById('myImage');
-        image.src = imageURI;
-    }
+     navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
+        quality: 50,
+        destinationType : destinationType.FILE_URI,
+        saveToPhotoAlbum : true,
+    });
+    
+    
+        
 
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
 });
        
