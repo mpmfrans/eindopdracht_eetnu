@@ -153,16 +153,16 @@ $(document).on("pagebeforeshow","#details_page",function(event){
                 
             
             
-            //$("#jRate").jRate({
-//                    startColor: 'orange',
-//		            endColor: 'orange',
-//                    width: 30,
-//		            height: 30,
-//                    min: 0,
-//		            max: 10,
-//                    rating: rating_res,
-//                    readOnly: true
-//            });
+            $("#jRate").jRate({
+                    startColor: 'orange',
+		            endColor: 'orange',
+                    width: 30,
+		            height: 30,
+                    min: 0,
+		            max: 10,
+                    rating: rating_res,
+                    readOnly: true
+            });
             $('#rate_number').text("Rating: "+rating_res);
             
             
