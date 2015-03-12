@@ -147,21 +147,18 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append("<p>City: "+city+"</p>");
             $("#details_content").append('<p>Telephone: <a href="tel:'+telephone+'">'+telephone+'</a></p>');
             $("#details_content").append("<p>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
-            $("#details_content").append("<div id='jRate'></div><div id='rate_number'></div>"); 
-            $("#details_content").append("<div id='htmlRating' data-role='igrating' data-value='2'></div>"); 
-            $("#details_content").append("<div id='htmlRating' data-role='igrating' data-value='2'>"); 
+            $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
             
-            
-//            $("#jRate").jRate({
-//                    startColor: 'orange',
-//		            endColor: 'orange',
-//                    width: 30,
-//		            height: 30,
-//                    min: 0,
-//		            max: 10,
-//                    rating: rating_res,
-//                    readOnly: true
-//            });
+            $("#jRate").jRate({
+                    startColor: 'orange',
+		            endColor: 'orange',
+                    width: 30,
+		            height: 30,
+                    min: 0,
+		            max: 10,
+                    rating: rating_res,
+                    readOnly: true
+            });
             $('#rate_number').text("Rating: "+rating_res);
             console.log(rating_res);
             
