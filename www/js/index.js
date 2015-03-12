@@ -48,7 +48,7 @@ var app = {
     }
 };
 
-$(document).on('swiperight', '#settings_page', function(event){
+$(document).on('swiperight', '#clear_settings', function(event){
 
     settings.clearSettings();
 
