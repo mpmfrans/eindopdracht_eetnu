@@ -50,7 +50,7 @@
                     <li><a href="#" data-role="button" data-icon="info">About</a></li> 
                     <li><a href="#" data-role="button" data-icon="user">Contact</a></li> 
                     <li><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
-                    <li><a href="#" data-role="button" data-icon="camera" id="take_a_picture">Tasty Camera</a></li> 
+                    <li><a href="#" data-role="button" data-icon="camera" id="take_a_picture">Camera</a></li> 
             </ul></div>
             <div data-role="header">
                 <a href="#eetnupanelindex" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
@@ -178,7 +178,8 @@
                        <label for="slider-2">Range in kilometers:</label>
                        <input type="range" id="slider-2" min="0" max="100" value="0" data-highlight="true" class="setting" />
                   
-                <button id="button" onclick=settings.saveSettings();>Save</button>   
+                <button id="button" onclick=settings.saveSettings();>Save</button></br></br></br>
+                <div id="clear_settings">Swipe right to clear all settings -></div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
@@ -211,10 +212,7 @@
                 <h3>&copy; Thijs Fransen 2015</h3>
             </div>
         </div>
-    <!-- ================================================================================================================================================================================ -->   
-        <div id="myImage"></div>    
-    
-        </div>  
+    <!-- ================================================================================================================================================================================ -->     
     </body>
 </html>
 

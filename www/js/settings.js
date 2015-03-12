@@ -53,6 +53,27 @@ var settings = {
         
        
     },
+    
+       clearSettings: function() {
+        
+        // The flip settings
+        document.getElementById("setting-1").value = "off";
+        document.getElementById("setting-2").value = "off";
+        
+         // The meters range slider setting and refresh
+        $("#slider-1").attr('value', 0);
+        //$("#slider-1").slider('refresh');
+        
+        // The kilometers range slider setting and refresh
+        $("#slider-2").attr('value', 0);
+       // $("#slider-2").slider('refresh');
+        
+        // Refresh flip settings
+        $(".setting").slider('refresh'); 
+        
+        settings.saveSettings();
+           
+    },
 };    
     
 //      showSettings: function() {
