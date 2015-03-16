@@ -134,11 +134,22 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             var name = restaurant.name;
             var telephone = restaurant.telephone;
             var website_url = restaurant.website_url;
-            var rating_res = restaurant.rating / 10;
+            var rating_res = restaurant.rating;
             var street = restaurant.address.street;
             var zipcode = restaurant.address.zipcode;
             var city = restaurant.address.city;
             var category_res = restaurant.category;
+            
+            if(rating_res == null || rating_res == "null"){
+                rating_res = 0;
+            }
+                
+                  
+            if(website_url != null && website_url != "null"){
+                if(website_url.substring(website_url.length-1 , website_url.length) == "/"){
+                    website_url = website_url.substring(0 , website_url.length-1);
+                }    
+            }
             
             $("#details_content").append("<h1>"+name+"</h1><h3>"+category_res+"</h3>");
             $("#details_content").append("<p>Street: "+street+"</p>");
@@ -147,30 +158,14 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append('<p>Telephone: <a href="tel:'+telephone+'">'+telephone+'</a></p>');
             $("#details_content").append("<p id='website_url'>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
 //          $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
-            $("#details_content").append("<div id='jRate'</div>"); 
+            $("#details_content").append("<div class='rating_bar'><div class='rating' style='width:"+rating_res+"%;'></div></div>"); 
             $("#details_content").append("<div id='rate_number'</div>"); 
-            
-             if(website_url != null && website_url != "null"){
-                if(website_url.substring(website_url.length-1 , website_url.length) == "/"){
-                    website_url = website_url.substring(0 , website_url.length-1);
-                }    
-            }
             
             if(website_url == null || website_url == "null"){
                 $("#website_url").hide();
             }
-            
-            $("#jRate").jRate({
-                    startColor: 'orange',
-		            endColor: 'orange',
-                    width: 30,
-		            height: 30,
-                    min: 0,
-		            max: 10,
-                    rating: rating_res,
-                    readOnly: true
-            });
-            $('#rate_number').text("Rating: "+rating_res);
+        
+            $('#rate_number').text("Rating: "+rating_res /10);
 //            $("#jRate").show();
             
         }        
