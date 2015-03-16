@@ -24,8 +24,6 @@ var settings = {
          localStorage.setting2 = $('#setting-2').val();
          localStorage.meters = $('#slider-1').val();
          localStorage.kilometers = $('#slider-2').val();
-    
-         //confirm("Settings are saved");
     },
     
     // Load user settings on startup
@@ -48,9 +46,7 @@ var settings = {
        // $("#slider-2").slider('refresh');
         
         // Refresh flip settings
-        $(".setting").slider('refresh'); 
-        
-        
+        $(".setting").slider('refresh');  
        
     },
     
@@ -75,17 +71,6 @@ var settings = {
            
     },
 };    
-    
-//      showSettings: function() {
-//        $(function() {
-//
-//        var setting1 = window.localStorage.getItem("setting1");
-//        var setting2 = window.localStorage.getItem("setting2");
-//        var range = window.localStorage.getItem("range");
-//        
-//        alert(setting1 + setting2 + range);
-//            });
-//    },
 
 
 

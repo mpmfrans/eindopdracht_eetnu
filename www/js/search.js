@@ -32,9 +32,9 @@ var searchRestaurants = {
             }
             
             if(search_query == null || search_query == "null" && filter == null || filter == "null"){
-                var venues_url = "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=20&sort_by="+filter;
+                var venues_url = "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range               +"&page="+count+"&per_page=20&sort_by="+filter;
             }else{
-                venues_url = "https://api.eet.nu/venues?query="+search_query+"&max_distance="+ total_search_range +"&geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&page="+count+"&per_page=20&sort_by="+filter;
+                venues_url = "https://api.eet.nu/venues?query="+search_query+"&max_distance="+ total_search_range +"&geolocation=" + position.coords.latitude + "," + position.coords.longitude +       "&page="+count+"&per_page=20&sort_by="+filter;
             }
                 
                 $.ajax({
@@ -61,7 +61,7 @@ var searchRestaurants = {
                                                 "</h3><span> Telephone: " + telephone +"</span></div>"));
                            restaurants.find('div[data-role=collapsible]').collapsible();    
                         */
-                       restaurant_list.append($("<li><a href='#details_page' id='restaurant_details' data-icon='arrow-r'  data-role='listview' data-id="+id+">"+name+"</a></li>"));
+                       restaurant_list.append($("<li><a href='#details_page' id='restaurant_details' data-icon='arrow-r' data-transition='none' data-role='listview' data-id="+id+" >"+name+"</a></li>"));
                        restaurant_list.listview('refresh');  
                         
                     });
@@ -144,7 +144,6 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             if(website_url != null && website_url != "null"){
                 if(website_url.substring(website_url.length-1 , website_url.length) == "/"){
                     website_url = website_url.substring(0 , website_url.length-1);
-            
                 }    
             }
             
@@ -158,10 +157,10 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append("<p id='website_url'>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
             $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
            
-             if(website_url == null || website_url == "null" ){
+            if(website_url == null || website_url == "null" ){
                 $("#website_url").hide();
                 
-             }
+            }
           
             $("#jRate").jRate({
                     startColor: 'orange',
