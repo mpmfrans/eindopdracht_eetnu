@@ -30,6 +30,8 @@
         <link rel="stylesheet" href="css/themes/eetNuApp.css" />
         <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="/plugins/rateit/src/rateit.css" />
+     
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/search.js"></script>
@@ -37,6 +39,7 @@
         <script type="text/javascript" src="js/settings.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="/plugins/rateit/src/jquery.rateit.js"></script>
         <script type="text/javascript" src="/plugins/jRate/src/jRate.js"></script>
         <title>Hello World</title>
     </head>
@@ -176,12 +179,8 @@
                        <label for="slider-2">Range in kilometers:</label>
                        <input type="range" id="slider-2" min="0" max="100" value="0" data-highlight="true" class="setting" />
                   
-                <a href="#popup_save" data-rel="popup" data-role="button" id="button" onclick=settings.saveSettings();>Save</a></br></br></br>
+                <button id="button" onclick=settings.saveSettings();>Save</button></br></br></br>
                 <div id="clear_settings" style="font-style: italic;">Swipe right to clear all settings</div>
-                    
-                    <div data-role="popup" data-transition="none" id="popup_save" class="ui-content" style="width:200px; height:100px;">
-                        Settings are saved
-                    </div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
@@ -210,7 +209,6 @@
             <div data-role="content" class="ui-content" id="details_content">
                            
             </div>
-            
            
                   <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>

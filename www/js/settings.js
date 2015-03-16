@@ -24,8 +24,8 @@ var settings = {
          localStorage.setting2 = $('#setting-2').val();
          localStorage.meters = $('#slider-1').val();
          localStorage.kilometers = $('#slider-2').val();
-    
-         //confirm("Settings are saved");
+        
+         confirm("Settings are saved");
     },
     
     // Load user settings on startup
