@@ -34,15 +34,13 @@
     </head>
     <body onload=settings.loadSettings();>
         <div class="app">
-        <div data-role="main" data-theme="d" id="index_page" class="page">
+        <div data-role="page" data-theme="d" id="index_page" class="page">
             <div data-role="header">
                 <h1>Eet.nu index</h1>
-            </div>
-            <div data-role="tabs">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#index_page" data-icon="home" data-transition="none" class="ui-btn-active"></a></li>
-                        <li><a href="#fragment-1" data-icon="search" id="search" data-transition="none" onclick=searchRestaurants.getCurrentLocation('1');></a></li>
+                        <li><a href="#search_page" data-icon="search" id="search" data-transition="none" onclick=searchRestaurants.getCurrentLocation('1');></a></li>
                         <li><a href="#settings_page" data-icon="gear" id="settings" data-transition="none" ></a></li>    
                     </ul>
                 </div>
@@ -55,7 +53,7 @@
                         <li><a href="#" data-role="button" data-icon="camera" id="take_a_picture">Camera</a></li> 
                     </ul>
                 </div>
-            
+            </div>
             <div data-role="content" class="ui-content">
             <h1>Welcome.</h1>
             <p>Enjoy this free Eet.nu app that helps you to search for your favorite restaurants! Bon Appétit!</p></br>
@@ -68,10 +66,9 @@
             <div data-role="footer" data-position="fixed">
                 <h3>&copy; Thijs Fransen 2015</h3>
             </div>   
-        
+        </div>
     <!-- ================================================================================================================================================================================ -->   
-        <div id="fragment-1">
-            <div data-role="page" data-theme="d" id="search_page" class="page">
+        <div data-role="page" data-theme="d" id="search_page" class="page">
             <div data-role="panel" id="eetnupanelsearch" data-position="left" data-display="overlay" data-theme="d">
                  <ul data-role="listview">
                     <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
@@ -82,13 +79,13 @@
             <div data-role="header">
                  <a href="#eetnupanelsearch" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu search</h1>
-               <!-- <div data-role="navbar">
+                <div data-role="navbar">
                     <ul>
                         <li><a href="#index_page" data-icon="home" data-transition="none"></a></li>
                         <li><a href="#search_page" data-icon="search" id="search" class="ui-btn-active" data-transition="none" onclick=searchRestaurants.getCurrentLocation('1');></a></li>
                         <li><a href="#settings_page" data-icon="gear" id="settings" data-transition="none"></a></li>   
                     </ul>
-                </div>-->
+                </div>
             </div>
             <div data-role="content" class="ui-content" id="search_content">
                <table style='width:100%'>
@@ -130,7 +127,6 @@
                 <h3>&copy; Thijs Fransen 2015</h3>
             </div>   
         </div>
-            </div>
     <!-- ================================================================================================================================================================================ -->   
         <div data-role="page" data-theme="d" id="settings_page" class="page">
             <div data-role="panel" id="eetnupanelsettings" data-position="left" data-display="overlay" data-theme="d">
@@ -216,7 +212,6 @@
         <script type="text/javascript" src="js/settings.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-</div>
 </body>
 </html>
 
