@@ -56,14 +56,12 @@ $(document).on('swiperight', '#clear_settings', function(event){
 });
 // Code below can be used to implement swipeleft and swipe right on all pages.
 
-self.transition = $(document).width() < 450 ? 'slide' : 'none';
-
 $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
         var activePage = $("body").pagecontainer("getActivePage");
     
         if(activePage[0].id == "index_page"){
          if (event.type == "swipeleft"){
-            $("body").pagecontainer( "change", "#search_page", {transition: self.transition});
+            $("body").pagecontainer( "change", "#search_page", {transition: 'none'});
             return;
          }
          if (event.type == "swiperight"){
@@ -72,11 +70,11 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
      }
      if(activePage[0].id  == "search_page"){
          if (event.type == "swipeleft"){
-            $("body").pagecontainer( "change", "#settings_page", {transition: self.transition});
+            $("body").pagecontainer( "change", "#settings_page", {transition: 'none'});
             return;
          }
          if (event.type == "swiperight"){
-             $("body").pagecontainer( "change", "#index_page", {transition: self.transition});
+             $("body").pagecontainer( "change", "#index_page", {transition: 'none'});
              return;
          }
      }
@@ -85,7 +83,7 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
             return;
          }
          if (event.type == "swiperight"){
-            $("body").pagecontainer( "change", "#search_page", {transition: self.transition});
+            $("body").pagecontainer( "change", "#search_page", {transition: 'none'});
             return;
          }
      }
