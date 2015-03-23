@@ -1,9 +1,9 @@
 var searchRestaurants = {
     
     getCurrentLocation: function(index, query, filter) {
-              
-        var Geo = {};
-       
+        
+        var longitude = null;
+        var latitude = null;
         var restaurant_list = $("#restaurants");
         var search_content = $("#search_content");
         var meters = localStorage.getItem("meters") / 1000;
@@ -21,9 +21,32 @@ var searchRestaurants = {
         if (navigator.geolocation) {
            var id = navigator.geolocation.getCurrentPosition(success, error);
         }
+        
+        
 
         //Get the latitude and the longitude;
         function success(position) {
+            
+            if(localStorage.getItem("latitude") == null && localStorage.getItem("longitude") == null){
+                //console.log(longitude + " " + latitude);
+                
+                localStorage.setItem("longitude", position.coords.longitude);
+                localStorage.setItem("latitude", position.coords.latitude);
+                longitude = localStorage.getItem("longitude");
+                latitude = localStorage.getItem("latitude");
+                
+                console.log(longitude + " " + latitude);
+            }
+//          else if(localStorage.getItem("latitude") == position.coords.latitude && localStorage.getItem("longitude") == position.coords.longitude){
+//              Geo.long = localStorage.getItem("longitude");
+//              Geo.lat = localStorage.getItem("latitude");
+//                
+//                console.log("same");
+//            }else{
+//                Geo.long = position.coords.longitude;
+//                Geo.lat = position.coords.latitude;  
+//                console.log("different");
+//            }
         
             if(index == null || index == "null"){
                 var count = 1;
@@ -32,7 +55,7 @@ var searchRestaurants = {
             }
             
             if(search_query == null || search_query == "null" && filter == null || filter == "null"){
-                var venues_url = "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range +"&page="+count+"&per_page=20&sort_by="+filter;
+                var venues_url = "https://api.eet.nu/venues?geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&max_distance="+ total_search_range           +"&page="+count+"&per_page=20&sort_by="+filter;
             }else{
                 venues_url = "https://api.eet.nu/venues?query="+search_query+"&max_distance="+ total_search_range +"&geolocation=" + position.coords.latitude + "," + position.coords.longitude + "&page="+count+"&per_page=20&sort_by="+filter;
             }

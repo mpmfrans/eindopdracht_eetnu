@@ -56,7 +56,6 @@ $(document).on('swiperight', '#clear_settings', function(event){
 });
 // Code below can be used to implement swipeleft and swipe right on all pages.
 
-/*
 $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
     
      if($.mobile.activePage.attr('id') == "index_page"){
@@ -89,6 +88,5 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
      }
      searchRestaurants.getCurrentLocation(null, null, filter);
 });
-*/
 
 

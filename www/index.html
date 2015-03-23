@@ -69,13 +69,6 @@
         </div>
     <!-- ================================================================================================================================================================================ -->   
         <div data-role="page" data-theme="d" id="search_page" class="page">
-            <div data-role="panel" id="eetnupanelsearch" data-position="left" data-display="overlay" data-theme="d">
-                 <ul data-role="listview">
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" id="take_a_picture">Camera</a></li>  
-            </ul></div>
             <div data-role="header">
                  <a href="#eetnupanelsearch" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu search</h1>
@@ -86,6 +79,13 @@
                         <li><a href="#settings_page" data-icon="gear" id="settings" data-transition="none"></a></li>   
                     </ul>
                 </div>
+                 <div data-role="panel" id="eetnupanelsearch" data-position="left" data-display="overlay" data-theme="d">
+                 <ul data-role="listview">
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info" data-transition="none" >About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user" data-transition="none" >Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear" data-transition="none" >Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" id="take_a_picture" data-transition="none" >Camera</a></li>  
+            </ul></div>
             </div>
             <div data-role="content" class="ui-content" id="search_content">
                <table style='width:100%'>
@@ -129,15 +129,6 @@
         </div>
     <!-- ================================================================================================================================================================================ -->   
         <div data-role="page" data-theme="d" id="settings_page" class="page">
-            <div data-role="panel" id="eetnupanelsettings" data-position="left" data-display="overlay" data-theme="d">
-                <ul data-role="listview">
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" id="take_a_picture">Camera</a></li> 
-            </ul>        
-            </div>
-            
             <div data-role="header">
                  <a href="#eetnupanelsettings" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu settings</h1>
@@ -148,6 +139,14 @@
                         <li><a href="#settings_page" data-icon="gear" id="settings" class="ui-btn-active" data-transition="none"></a></li>   
                     </ul>
                 </div>
+                 <div data-role="panel" id="eetnupanelsettings" data-position="left" data-display="overlay" data-theme="d">
+                <ul data-role="listview">
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info" data-transition="none" >About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user" data-transition="none" >Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear" data-transition="none" >Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" id="take_a_picture" data-transition="none" >Camera</a></li> 
+            </ul>        
+            </div>
             </div>
             <div data-role="content" class="ui-content" id="settings_content">
                  <label for="setting-1">Setting 1:</label>
@@ -178,13 +177,7 @@
         </div>
     <!-- ================================================================================================================================================================================ -->
         <div data-role="page" data-theme="d" id="details_page" class="page">
-            <div data-role="panel" id="eetnupanelindex" data-position="left" data-display="overlay" data-theme="d">
-                  <ul data-role="listview">
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info">About</a></li> 
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user">Contact</a></li> 
-                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear">Settings</a></li> 
-                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" id="take_a_picture">Camera</a></li> 
-            </ul></div>
+         
             <div data-role="header">
                 <a href="#eetnupanelindex" data-shadow="false" data-iconshadow="false" data-icon="bars"  class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
                 <h1>Eet.nu details</h1>
@@ -194,7 +187,14 @@
                         <li><a href="#search_page" data-icon="search" id="search" data-transition="none" onclick=searchRestaurants.getCurrentLocation();></a></li>
                         <li><a href="#settings_page" data-icon="gear" id="settings" data-transition="none" ></a></li>    
                     </ul>
-                </div>
+                </div>   
+                <div data-role="panel" id="eetnupanelindex" data-position="left" data-display="overlay" data-theme="d" >
+                  <ul data-role="listview">
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="info" data-transition="none" >About</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="user" data-transition="none" >Contact</a></li> 
+                    <li  data-icon="false"><a href="#settings_page" data-role="button" data-icon="gear" data-transition="none" >Settings</a></li> 
+                    <li  data-icon="false"><a href="#" data-role="button" data-icon="camera" id="take_a_picture" data-transition="none" >Camera</a></li> 
+            </ul></div>
             </div>
             <div data-role="content" class="ui-content" id="details_content">
                            
@@ -210,8 +210,9 @@
         <script type="text/javascript" src="js/search.js"></script>
         <script type="text/javascript" src="js/camera.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+<!--        <script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
+</div>
 </body>
 </html>
 
