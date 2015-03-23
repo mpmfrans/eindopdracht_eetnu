@@ -869,6 +869,10 @@ html head + body .ui-body-d.ui-focus {
 	box-shadow: 0 0 12px #d4145a /*{d-active-background-color}*/;
 }
 
+.ui-page{
+    -webkit-backface-visibility: hidden;
+}
+
 
 /* Structure */
 /* Disabled
