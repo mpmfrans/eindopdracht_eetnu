@@ -56,37 +56,42 @@ $(document).on('swiperight', '#clear_settings', function(event){
 });
 // Code below can be used to implement swipeleft and swipe right on all pages.
 
+self.transition = $(document).width() < 450 ? 'slide' : 'none';
+
 $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
+        var activePage = $("body").pagecontainer("getActivePage");
     
-     if($.mobile.activePage.attr('id') == "index_page"){
+        if(activePage[0].id == "index_page"){
          if (event.type == "swipeleft"){
-            $.mobile.changePage("#search_page", {transition: "none"});
+            $("body").pagecontainer( "change", "#search_page", {transition: self.transition});
             return;
          }
          if (event.type == "swiperight"){
              return;
          }
      }
-     if($.mobile.activePage.attr('id') == "search_page"){
+     if(activePage[0].id  == "search_page"){
          if (event.type == "swipeleft"){
-            $.mobile.changePage("#settings_page", {transition: "none"});
+            $("body").pagecontainer( "change", "#settings_page", {transition: self.transition});
             return;
          }
          if (event.type == "swiperight"){
-             $.mobile.changePage("#index_page", {transition: "none"});
+             $("body").pagecontainer( "change", "#index_page", {transition: self.transition});
              return;
          }
      }
-     if($.mobile.activePage.attr('id') == "settings_page"){
+     if(activePage[0].id == "settings_page"){
          if (event.type == "swipeleft"){
             return;
          }
          if (event.type == "swiperight"){
-            $.mobile.changePage("#search_page", {transition: "none"});
+            $("body").pagecontainer( "change", "#search_page", {transition: self.transition});
             return;
          }
      }
-     searchRestaurants.getCurrentLocation(null, null, filter);
+    // searchRestaurants.getCurrentLocation(null, null, filter);
 });
+
+
 
 

@@ -139,7 +139,7 @@ var searchRestaurants = {
     }
 };
 
-$(document).on('tap', '#restaurants li a', function(e){
+$(document).on('click', '#restaurants li a', function(e){
     var RestaurantId = ($(this).data("id"));
     localStorage.setItem("RestaurantDetail", RestaurantId);
 });
