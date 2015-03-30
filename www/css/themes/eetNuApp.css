@@ -940,4 +940,24 @@ button[disabled],
     /* and repeat them horizontally */
     background-repeat: repeat-x;
 }
+
+#search_page{
+    display: block;
+    float: left;
+    width: 20%;
+    position: relative;
+    z-index: 200;
+    height: 100%;
+    border-right: 3px solid black;
+}
+
+#details_page{
+    display: inline-block;
+    float: right;
+    width: 80%;
+    margin-left: 20%;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 30px;
+}
 			
