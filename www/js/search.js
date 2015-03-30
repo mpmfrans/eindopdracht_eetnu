@@ -159,6 +159,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             var website_url = restaurant.website_url;
             var rating_res = restaurant.rating;
             var street = restaurant.address.street;
+            var facebook = restaurant.facebook_url;
             var zipcode = restaurant.address.zipcode;
             var city = restaurant.address.city;
             var category_res = restaurant.category;
@@ -182,19 +183,23 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append("<p>City: "+city+"</p>");
             $("#details_content").append('<p>Telephone: <a href="tel:'+telephone+'">'+telephone+'</a></p>');
             $("#details_content").append("<p id='website_url'>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
-//          $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
-            $("#details_content").append("<div class='rating_bar'><div class='rating' style='width:"+rating_res+"%;'></div></div>"); 
-            $("#details_content").append("<div id='rate_number'</div></br>"); 
-            $("#details_content").append('<a href="http://maps.google.com/?saddr='+latitude+','+longitude+'&daddr='+zipcode+' '+street+','+city+'">Start Navigation</a>');
-            
-            http://maps.google.com/?q=1200 Pennsylvania Ave SE, Washington, District of Columbia, 20003
+            $("#details_content").append('<p  id="facebook">Facebook: <a href="'+facebook+'">'+facebook+'</a></p>');
+            $("#details_content").append("<div class='rating_bar'><div class='rating' style='width:"+rating_res+"%;'></div></div></br>"); 
+            $("#details_content").append("<div id='rate_number'</div>"); 
+            $("#details_content").append('</br><a href="http://maps.google.com/?saddr='+latitude+','+longitude+'&daddr='+zipcode+' '+street+','+city+'">Start Navigation</a>');
             
             if(website_url == null || website_url == "null"){
                 $("#website_url").hide();
             }
+            
+            if(facebook == null || facebook == "null"){
+                $("#facebook").hide();
+            }
         
             $('#rate_number').text("Rating: "+rating_res /10);
-//            $("#jRate").show();
+            
+            
+
             
         }        
     
