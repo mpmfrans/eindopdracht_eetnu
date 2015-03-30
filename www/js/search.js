@@ -162,6 +162,8 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             var zipcode = restaurant.address.zipcode;
             var city = restaurant.address.city;
             var category_res = restaurant.category;
+            longitude = localStorage.getItem("longitude");
+            latitude = localStorage.getItem("latitude");
             
             if(rating_res == null || rating_res == "null"){
                 rating_res = 0;
@@ -183,6 +185,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
 //          $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
             $("#details_content").append("<div class='rating_bar'><div class='rating' style='width:"+rating_res+"%;'></div></div>"); 
             $("#details_content").append("<div id='rate_number'</div>"); 
+            $("#details_content").append('<a href="http://maps.google.com/maps?daddr='+latitude+','+longitude'">Start Navigation</a>');
             
             if(website_url == null || website_url == "null"){
                 $("#website_url").hide();
