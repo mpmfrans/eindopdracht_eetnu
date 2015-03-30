@@ -184,8 +184,8 @@ $(document).on("pagebeforeshow","#details_page",function(event){
             $("#details_content").append("<p id='website_url'>Website: <a href="+website_url+">"+website_url+"</a></p>"); 
 //          $("#details_content").append("<div id='jRate' data-role='none'></div><div id='rate_number'></div>"); 
             $("#details_content").append("<div class='rating_bar'><div class='rating' style='width:"+rating_res+"%;'></div></div>"); 
-            $("#details_content").append("<div id='rate_number'</div>"); 
-            $("#details_content").append('<a href="http://maps.google.com/?q='+zipcode+' '+street+','+city+'">Start Navigation</a>');
+            $("#details_content").append("<div id='rate_number'</div></br>"); 
+            $("#details_content").append('<a href="http://maps.google.com/?saddr='+latitude+','+longitude+'&daddr='+zipcode+' '+street+','+city+'">Start Navigation</a>');
             
             http://maps.google.com/?q=1200 Pennsylvania Ave SE, Washington, District of Columbia, 20003
             
