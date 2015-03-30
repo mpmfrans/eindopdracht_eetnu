@@ -18,6 +18,11 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
+    
+<feature name="camere">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    
 <!--
   <feature name="http://api.phonegap.com/1.0/camera" />
   <feature name="http://api.phonegap.com/1.0/file" />
