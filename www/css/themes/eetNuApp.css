@@ -838,9 +838,9 @@ html .ui-bar-d .ui-slider-track .ui-btn-active,
 html .ui-body-d .ui-slider-track .ui-btn-active,
 html body .ui-group-theme-d .ui-slider-track .ui-btn-active,
 html body div.ui-slider-track.ui-body-d .ui-btn-active {
-	/*background-color: #d4145a {d-active-background-color}*/;
-	/*border-color: #740b31 {d-active-border}*/;
-	color: #ffffff /*{d-active-color}*/;
+	background-color: #f6f6f6 {d-active-background-color}*/;
+	border-color: #dddddd {d-active-border}*/;
+	color: #333333 /*{d-active-color}*/;
 	text-shadow: 0 /*{d-active-shadow-x}*/ 1px /*{d-active-shadow-y}*/ 0 /*{d-active-shadow-radius}*/ #444444 /*{d-active-shadow-color}*/;
 }
 /* Active radio button icon */
