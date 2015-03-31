@@ -19,7 +19,7 @@
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
     
-<feature name="camere">
+    <feature name="camere">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
     
