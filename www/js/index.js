@@ -79,12 +79,12 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
          }
      }
     
-    if($("#slider-1").bind("change", function(event)) || $("#slider-2").bind("change", function(event))){
+    if($("#slider-1").on("slidestart", function(event, ui)) || $("#slider-2").on("slidestart", function(event, ui))){
         return;
                          }
                          else{
                          
-                          if(activePage[0].id == "settings_page"){
+    if(activePage[0].id == "settings_page"){
          if (event.type == "swipeleft"){
             return;
          }
