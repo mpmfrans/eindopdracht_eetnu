@@ -78,7 +78,13 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
              return;
          }
      }
-     if(activePage[0].id == "settings_page"){
+    
+    if($("#slider-1").on("taphold", function(event)) || $("#slider-2").on("taphold", function(event))){
+        return;
+                         }
+                         else{
+                         
+                          if(activePage[0].id == "settings_page"){
          if (event.type == "swipeleft"){
             return;
          }
@@ -87,6 +93,11 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
             return;
          }
      }
+                         
+                         
+                         
+                         }
+    
     // searchRestaurants.getCurrentLocation(null, null, filter);
 });
 

@@ -96,7 +96,7 @@ var searchRestaurants = {
                         restaurant_list.append("<div class='ui-block-a'><button id='next' data-role='button' class='ui-btn' data-inline='true'>next</button></div>");
                         restaurant_list.append("</fieldset>");
                         
-                        $("#next").on('tap', function(){
+                        $("#next").on('click', function(){
                             count++; 
                             searchRestaurants.getCurrentLocation(count, search_query);                                 
                         });
@@ -108,11 +108,11 @@ var searchRestaurants = {
                         restaurant_list.append("<div class='ui-block-b'><button id='next' data-role='button' class='ui-btn' data-inline='true'>next</button></div>");
                         restaurant_list.append("</fieldset>");    
                         
-                        $("#next").on('tap', function(){
+                        $("#next").on('click', function(){
                             count++;   
                             searchRestaurants.getCurrentLocation(count, search_query);                                
                         });
-                        $("#previous").on('tap', function(){
+                        $("#previous").on('click', function(){
                             count--;  
                             searchRestaurants.getCurrentLocation(count, search_query);                 
                                          
@@ -123,7 +123,7 @@ var searchRestaurants = {
                         restaurant_list.append("<fieldset class='ui-grid-a'>");
                         restaurant_list.append("<div class='ui-block-a'><button id='previous' class='ui-btn' data-inline='true' data-role='button'>previous</button></div>");
                         restaurant_list.append("</fieldset>");
-                        $("#previous").on('tap', function(){
+                        $("#previous").on('click', function(){
                             count--;    
                             searchRestaurants.getCurrentLocation(count, search_query);                               
                         });
