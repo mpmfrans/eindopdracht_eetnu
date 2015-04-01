@@ -79,13 +79,15 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
          }
      }
     
-    $("#slider-1").on("change", function(event, ui){
-        return;
-    });
+   $(document).on('swipeleft swiperight', '#slider-1', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+});
     
-     $("#slider-2").on("change", function(event, ui){
-        return;
-    });
+    $(document).on('swipeleft swiperight', '#slider-2', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+});
                        
                          
     if(activePage[0].id == "settings_page"){
