@@ -56,12 +56,12 @@ $(document).on('swiperight', '#clear_settings', function(event){
 });
 // Code below can be used to implement swipeleft and swipe right on all pages.
 
-$('#slider-1').bind('swipeLeft swipeRight', function(event) {
+$('#slider-1').bind('touchstart touchend touchup', function(event) {
     event.stopPropagation();
     event.preventDefault();
 });
 
-$('#slider-2').bind('swipeLeft swipeRight', function(event) {
+$('#slider-2').bind('touchstart touchend touchup', function(event) {
     event.stopPropagation();
     event.preventDefault();
 });
