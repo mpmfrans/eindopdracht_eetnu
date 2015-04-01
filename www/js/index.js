@@ -56,6 +56,16 @@ $(document).on('swiperight', '#clear_settings', function(event){
 });
 // Code below can be used to implement swipeleft and swipe right on all pages.
 
+$(document).on('swipeleft swiperight', '#slider-1', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+});
+    
+    $(document).on('swipeleft swiperight', '#slider-2', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+});
+
 $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
         var activePage = $("body").pagecontainer("getActivePage");
     
@@ -77,18 +87,7 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
              $("body").pagecontainer( "change", "#index_page", {transition: 'none'});
              return;
          }
-     }
-    
-   $(document).on('swipeleft swiperight', '#slider-1', function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-});
-    
-    $(document).on('swipeleft swiperight', '#slider-2', function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-});
-                       
+     }                   
                          
     if(activePage[0].id == "settings_page"){
          if (event.type == "swipeleft"){
