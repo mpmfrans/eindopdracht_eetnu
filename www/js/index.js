@@ -90,6 +90,14 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
     // searchRestaurants.getCurrentLocation(null, null, filter);
 });
 
+$(document).on('tap', '#eetnupanellink', function(event){
+
+    $.mobile.activePage.find('#eetnupanel').panel("open");
+
+});
+
+
+
 
 
 
