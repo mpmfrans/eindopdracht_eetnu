@@ -79,10 +79,14 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
          }
      }
     
-    if($("#slider-1").on("slidestart", function(event, ui)) || $("#slider-2").on("slidestart", function(event, ui))){
+    $("#slider-1").on("change", function(event, ui){
         return;
-                         }
-                         else{
+    });
+    
+     $("#slider-2").on("change", function(event, ui){
+        return;
+    });
+                       
                          
     if(activePage[0].id == "settings_page"){
          if (event.type == "swipeleft"){
@@ -93,10 +97,6 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
             return;
          }
      }
-                         
-                         
-                         
-                         }
     
     // searchRestaurants.getCurrentLocation(null, null, filter);
 });
