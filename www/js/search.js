@@ -207,14 +207,23 @@ $(document).on("pagebeforeshow","#details_page",function(event){
    
 });
 
-$(document).on('','#search-mini',function(e){
+//$(document).on('','#search-mini',function(e){
+//        var value = $(this).val();
+//        var filter = localStorage.getItem("filter");
+//        localStorage.setItem("search_query", value);
+//        searchRestaurants.getCurrentLocation(null, value, filter);
+//});
+
+$(document).keypress(function(e) {
+    if(e.which == 13) {
         var value = $(this).val();
         var filter = localStorage.getItem("filter");
         localStorage.setItem("search_query", value);
         searchRestaurants.getCurrentLocation(null, value, filter);
+    }
 });
 
-$(document).on('tap','#search-mini',function(e){
+$(document).on('submit','#search-mini',function(e){
         var value = $(this).val();
         var filter = localStorage.getItem("filter");
         localStorage.setItem("search_query", value);
