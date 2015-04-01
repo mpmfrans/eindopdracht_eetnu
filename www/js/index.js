@@ -90,11 +90,42 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
     // searchRestaurants.getCurrentLocation(null, null, filter);
 });
 
+$(document).on('swipeleft swiperight', 'div.ui-page', function(event){
+        var activePage = $("body").pagecontainer("getActivePage");
+    
+     if(activePage[0].id  == "about_page"){
+         if (event.type == "swipeleft"){
+            $("body").pagecontainer( "change", "#index_page", {transition: 'none'});
+            return;
+         }
+         if (event.type == "swiperight"){
+             $("body").pagecontainer( "change", "#index_page", {transition: 'none'});
+             return;
+         }
+     }
+     if(activePage[0].id  == "contact_page"){
+         if (event.type == "swipeleft"){
+            $("body").pagecontainer( "change", "#index_page", {transition: 'none'});
+            return;
+         }
+         if (event.type == "swiperight"){
+             $("body").pagecontainer( "change", "#index_page", {transition: 'none'});
+             return;
+         }
+     }
+    // searchRestaurants.getCurrentLocation(null, null, filter);
+});
+
+
+
+
 $(document).on('tap', '#eetnupanellink', function(event){
 
     $.mobile.activePage.find('#eetnupanel').panel("open");
 
 });
+
+
 
 
 

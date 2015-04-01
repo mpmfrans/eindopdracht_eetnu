@@ -207,7 +207,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
    
 });
 
-$(document).on('input','#search-mini',function(e){
+$(document).on('','#search-mini',function(e){
         var value = $(this).val();
         var filter = localStorage.getItem("filter");
         localStorage.setItem("search_query", value);
@@ -229,6 +229,7 @@ $(document).on('tap', '.ui-input-clear', function () {
 $(document).on('change', '[type="radio"]', function(){ 
     var filter = $('input[name=radio-choice-1]:checked', '#filter_form').val()
     localStorage.setItem("filter", filter); 
+    searchRestaurants.getCurrentLocation(null, localStorage.getItem("search_query"), filter);
 }); 
 
 $(document).on('tap', '#filter_back', function(){
