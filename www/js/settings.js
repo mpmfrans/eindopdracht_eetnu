@@ -20,8 +20,8 @@ var settings = {
     
     // Save user settings
     saveSettings: function() {
-         localStorage.setting1 = $('#setting-1').val();
-         localStorage.setting2 = $('#setting-2').val();
+         //localStorage.setting1 = $('#setting-1').val();
+         //localStorage.setting2 = $('#setting-2').val();
          localStorage.meters = $('#slider-1').val();
          localStorage.kilometers = $('#slider-2').val();
         
@@ -30,14 +30,14 @@ var settings = {
     
     // Load user settings on startup
     loadSettings: function() {
-        var setting1 = window.localStorage.getItem("setting1");
-        var setting2 = window.localStorage.getItem("setting2");
+        //var setting1 = window.localStorage.getItem("setting1");
+        //var setting2 = window.localStorage.getItem("setting2");
         var meters = window.localStorage.getItem("meters");
         var kilometers = window.localStorage.getItem("kilometers");
         
         // The flip settings
-        document.getElementById("setting-1").value = setting1;
-        document.getElementById("setting-2").value = setting2;
+        //document.getElementById("setting-1").value = setting1;
+        //document.getElementById("setting-2").value = setting2;
         
          // The meters range slider setting and refresh
         $("#slider-1").attr('value', meters);
@@ -54,8 +54,8 @@ var settings = {
        clearSettings: function() {
         
         // The flip settings
-        document.getElementById("setting-1").value = "off";
-        document.getElementById("setting-2").value = "off";
+        //document.getElementById("setting-1").value = "off";
+        //document.getElementById("setting-2").value = "off";
         
          // The meters range slider settings
         document.getElementById("slider-1").value = 0;
@@ -64,8 +64,8 @@ var settings = {
         // Refresh flip and slider settings
         $(".setting").slider('refresh'); 
         
-         localStorage.setting1 = $('#setting-1').val();
-         localStorage.setting2 = $('#setting-2').val();
+         //localStorage.setting1 = $('#setting-1').val();
+         //localStorage.setting2 = $('#setting-2').val();
          localStorage.meters = $('#slider-1').val();
          localStorage.kilometers = $('#slider-2').val();     
     },
