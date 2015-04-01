@@ -79,7 +79,7 @@ $(document).on('swipeleft swiperight', 'div.ui-page', function(event){
          }
      }
     
-    if($("#slider-1").on("taphold", function(event)) || $("#slider-2").on("taphold", function(event))){
+    if($("#slider-1").bind("change", function(event)) || $("#slider-2").bind("change", function(event))){
         return;
                          }
                          else{
