@@ -216,7 +216,7 @@ $(document).on("pagebeforeshow","#details_page",function(event){
 
 $(document).keypress(function(e) {
     if(e.which == 13) {
-        var value = $(this).val();
+        var value = $("#search-mini").val();
         var filter = localStorage.getItem("filter");
         localStorage.setItem("search_query", value);
         searchRestaurants.getCurrentLocation(null, value, filter);
